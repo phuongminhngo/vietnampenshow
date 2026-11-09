@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vietnam Pen Show</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ngày hội thường niên của những người yêu bút và chữ viết, tại Hà Nội từ 2015.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Ballet:opsz@16..72&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a printed invitation on white paper. Centered serif titles, Ballet script as section names, thin ink rules, red only for the current season. */
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #FAF8F4;
+  --tint: #EFEBE4;
+  --ink: #231815;
+  --muted: #5E5650;
+  --rule-soft: #D8D2C8;
+  --on-ink: #FFFFFF;
+  --on-ink-muted: #D8D2C8;
+  --red: #A8141C;
+  --f-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --f-script: 'Ballet', 'Playfair Display', Georgia, cursive;
+  --f-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter-l: max(24px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(24px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6; font-weight: 400;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: var(--ink); }
+a:hover { color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
+img { max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.wrap.narrow { max-width: 920px; }
+.section { padding-block: 96px; }
+.band { background: var(--paper-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.band + .band { border-top: 0; }
+.stack { display: flex; flex-direction: column; gap: 24px; }
+.center { align-items: center; text-align: center; }
+
+.script { font-family: var(--f-script); font-weight: 400; font-size: clamp(48px, 7vw, 68px); line-height: 1.25; }
+.display { font-family: var(--f-display); font-weight: 400; }
+.lede { font-family: var(--f-display); font-weight: 400; font-size: clamp(24px, 3.2vw, 38px); line-height: 1.3; max-width: 820px; }
+.sub { font-family: var(--f-display); font-style: italic; font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); }
+.body-lg { font-size: 18px; font-weight: 300; color: var(--muted); max-width: 66ch; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.pillars { font-weight: 600; font-size: 13px; letter-spacing: 0.14em; }
+
+/* Ribbon + header */
+.ribbon { display: block; background: var(--ink); color: var(--on-ink); text-decoration: none; }
+.ribbon:hover { color: var(--on-ink); }
+.ribbon .wrap { padding-block: 11px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; font-size: 14px; text-align: center; }
+.ribbon b { letter-spacing: 0.08em; }
+.ribbon u { font-weight: 600; text-underline-offset: 3px; }
+
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+.site-header .wrap { padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-size: 20px; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; gap: 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav a { text-decoration: none; padding-block: 12px; white-space: nowrap; }
+.header-end { display: flex; align-items: center; gap: 16px; }
+.lang { font-size: 13px; font-weight: 600; color: var(--muted); }
+@media (max-width: 900px) {
+  .site-header .wrap { padding-bottom: 0; }
+  .nav { order: 3; flex: 1 0 100%; overflow-x: auto; gap: 22px; border-top: 1px solid var(--rule-soft); scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .lang { display: none; }
+}
+
+/* Buttons */
+.btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 16px 30px;
+  font: inherit; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--ink); background: var(--ink); color: var(--on-ink); cursor: pointer;
+}
+.btn:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.btn.sm { min-height: 44px; padding: 10px 18px; font-size: 13px; }
+.btn.light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn.light:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+
+/* Hero */
+.hero { padding-block: 88px 72px; }
+.hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 8.4vw, 108px); line-height: 1; letter-spacing: 0.01em; }
+.hero .tagline { font-weight: 700; font-size: clamp(15px, 2vw, 22px); letter-spacing: 0.04em; }
+.hero .script { font-size: clamp(40px, 6vw, 72px); line-height: 1.15; }
+.photo {
+  aspect-ratio: 21 / 9; max-width: 100%; background: var(--tint); border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; color: var(--muted); font-size: 14px;
+}
+
+/* Bordered cell grid */
+.cells { width: 100%; display: grid; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); text-align: left; }
+.cells > * { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 32px 26px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cells .num { font-family: var(--f-display); font-style: italic; font-size: 38px; line-height: 1; }
+.cells h3 { font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+.cells p { font-size: 15px; font-weight: 300; color: var(--muted); }
+.cells.c3 { grid-template-columns: repeat(3, 1fr); }
+.cells.c5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1000px) { .cells.c5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 820px) { .cells.c3, .cells.c5 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .cells.c3, .cells.c5 { grid-template-columns: 1fr; } }
+
+/* Editions */
+.editions { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; text-align: left; }
+.edition { border: 1px solid var(--ink); background: var(--paper); text-decoration: none; display: flex; flex-direction: column; }
+.edition.current { outline: 2px solid var(--red); outline-offset: -2px; }
+.edition .ph { aspect-ratio: 4 / 3; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.edition .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 4px; }
+.edition .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.edition .year { font-family: var(--f-display); font-size: 32px; line-height: 1.1; }
+.edition .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.edition.current .tag { color: var(--red); }
+.edition .name { font-weight: 600; }
+.edition .meta { font-size: 14px; color: var(--muted); font-weight: 300; }
+
+.stats { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; }
+.stats .n { font-family: var(--f-display); font-size: 46px; line-height: 1.2; }
+.stats .l { font-size: 14px; color: var(--muted); }
+.rule-top { border-top: 1px solid var(--ink); padding-top: 40px; }
+
+/* Topics */
+.split { display: flex; flex-wrap: wrap; gap: 48px; }
+.split > :first-child { flex: 1 1 340px; min-width: 0; }
+.split > :last-child { flex: 999 1 520px; min-width: 0; }
+.topics { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px; border-top: 1px solid var(--ink); align-self: start; }
+@media (max-width: 560px) { .topics { grid-template-columns: 1fr; } }
+.topics a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 2px; border-bottom: 1px solid var(--ink); text-decoration: none; font-size: 16px; }
+.topics i { font-family: var(--f-display); color: var(--muted); margin-right: 12px; }
+
+/* News */
+.news { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; text-align: left; }
+.news a { background: var(--paper); border: 1px solid var(--ink); text-decoration: none; display: flex; flex-direction: column; }
+.news .ph { aspect-ratio: 16 / 9; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.news .body { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.news .cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.news .t { font-family: var(--f-display); font-size: 20px; line-height: 1.35; }
+
+.brands { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; max-width: 980px; }
+.brands span { font-family: var(--f-display); font-size: 21px; }
+
+/* Panels & forms */
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.panel { border: 1.5px solid var(--ink); background: var(--paper); padding: 40px; display: flex; flex-direction: column; gap: 16px; }
+.panel.dark { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.panel.dark p.txt { color: var(--on-ink-muted); }
+.panel .script { font-size: 52px; line-height: 1.2; }
+@media (max-width: 520px) { .panel { padding: 28px 22px; } }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; }
+.field input, .field select {
+  font: inherit; font-size: 16px; letter-spacing: 0; font-weight: 400; color: var(--ink);
+  padding: 12px; min-height: 48px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper);
+}
+.form-note { font-size: 14px; color: var(--muted); }
+.form-note[data-ok] { color: var(--ink); font-weight: 600; }
+
+footer { border-top: 1px solid var(--ink); }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer a { color: var(--muted); }
+
+/* Season page */
+.partners { display: flex; align-items: stretch; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.partner .eyebrow { font-size: 10px; letter-spacing: 0.08em; }
+.partner img { height: 80px; width: auto; }
+.partner-rule { width: 1px; background: var(--ink); }
+@media (max-width: 520px) { .partner img { height: 64px; } }
+.when { border: 1.5px solid var(--ink); padding: 16px 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; font-size: clamp(16px, 2vw, 21px); }
+@media (max-width: 520px) { .when span[aria-hidden] { display: none; } }
+.countdown { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; margin-top: 8px; }
+.cd-units { display: flex; gap: 24px; }
+.cd-units > div { display: flex; flex-direction: column; align-items: center; min-width: 56px; }
+.cd-n { font-family: var(--f-display); font-size: 42px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.cd-l { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; }
+
+.day h3 { font-weight: 700; font-size: 18px; letter-spacing: 0.02em; }
+.day .q { font-family: var(--f-display); font-style: italic; font-size: 22px; margin: 4px 0 12px; }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.rows li { display: flex; flex-wrap: wrap; gap: 2px 40px; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.rows time { flex: 0 0 160px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rows div { flex: 1 1 320px; min-width: 0; font-size: 17px; }
+.rows small { display: block; font-size: 15px; color: var(--muted); font-weight: 300; }
+
+.red-band { background: var(--red); color: var(--on-ink); }
+
+.history { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+@media (max-width: 640px) { .history { grid-template-columns: repeat(2, 1fr); } }
+.history a { padding: 22px 12px 4px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; text-align: center; }
+.history .display { font-size: 34px; }
+.history a > span:last-child { font-size: 14px; color: var(--muted); }
+
+.addr { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px; font-size: 18px; }
+.addr div { display: flex; flex-direction: column; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; border-top: 1px solid var(--ink); padding-top: 24px; }
+.facts div { display: flex; flex-direction: column; gap: 2px; }
+.map {
+  aspect-ratio: 16 / 7; max-width: 100%; border: 1.5px solid var(--ink); text-decoration: none; padding: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, var(--rule-soft) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, var(--rule-soft) 39px 40px), var(--paper);
+}
+.map .display { background: var(--paper); padding: 2px 10px; }
+.map .eyebrow { background: var(--paper); padding: 2px 10px; }
+.faq details { border-bottom: 1px solid var(--rule-soft); }
+.faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
+.faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<a class="ribbon" href="2026.html">
+  <span class="wrap">
+    <b>MÙA 2026</b>
+    <span>950 năm Văn Miếu, Quốc Tử Giám · 05 đến 06.12 tại Hà Nội</span>
+    <u>Xem chương trình →</u>
+  </span>
+</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">VIETNAM PEN SHOW</a>
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="#su-menh">Về chúng tôi</a>
+      <a href="#cac-mua">Các mùa</a>
+      <a href="#the-gioi-but">Thế giới bút</a>
+      <a href="#cong-dong">Cộng đồng</a>
+      <a href="#doi-tac">Đối tác</a>
+    </nav>
+    <div class="header-end">
+      <span class="lang">VI · EN</span>
+      <a class="btn sm" href="2026.html">Mùa 2026</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="top" class="wrap hero">
+    <div class="stack center">
+      <p class="eyebrow">Từ 2015 · Hà Nội</p>
+      <h1>VIETNAM PEN SHOW</h1>
+      <p class="tagline">NGÀY HỘI THƯỜNG NIÊN CỦA NHỮNG NGƯỜI YÊU BÚT VÀ CHỮ VIẾT</p>
+      <p class="script">Kết nối bằng cây bút, lưu giữ bằng nét chữ</p>
+      <div class="btns" style="margin-top: 8px">
+        <a class="btn" href="2026.html">Khám phá mùa 2026</a>
+        <a class="btn ghost" href="#nhan-tin">Nhận tin các mùa tới</a>
+      </div>
+    </div>
+  </section>
+  <div class="wrap" style="padding-bottom: 96px">
+    <div class="photo">[Ảnh toàn cảnh: không khí Pen Show qua các mùa]</div>
+  </div>
+
+  <section id="su-menh" class="band">
+    <div class="wrap narrow section stack center">
+      <p class="script">Sứ mệnh</p>
+      <h2 class="lede">Vietnam Pen kết nối những người yêu bút, yêu chữ và trân trọng văn hóa viết tay</h2>
+      <p class="body-lg">Cùng nhau khám phá, gìn giữ và chia sẻ những giá trị về bút, mực, giấy, nghệ thuật và lịch sử của chữ viết. Từ Việt Nam, chúng tôi mong muốn đưa những câu chuyện của văn hóa viết Việt Nam đến gần hơn với thế giới.</p>
+      <p class="pillars">CHỮ · BÚT · MỰC · GIẤY · CON NGƯỜI · VĂN HÓA VIẾT</p>
+    </div>
+  </section>
+
+  <section class="wrap section stack center">
+    <p class="script">Mỗi mùa Pen Show</p>
+    <p class="sub" style="margin-bottom: 24px">Những trải nghiệm bạn sẽ gặp lại mỗi năm</p>
+    <div class="cells c3">
+      <article><span class="num">I</span><h3>Bảo tàng bút</h3><p>Những cây bút mang ký ức của từng thời đại, từ Nhật, Âu Mỹ, Trung Quốc đến Việt Nam.</p></article>
+      <article><span class="num">II</span><h3>Gian thương hiệu</h3><p>Gặp các thương hiệu bút trong và ngoài nước, thử bút và mực tại chỗ.</p></article>
+      <article><span class="num">III</span><h3>Pen Clinic</h3><p>Chỉnh ngòi, sửa chữa, bảo dưỡng cây bút của bạn cùng người thợ.</p></article>
+      <article><span class="num">IV</span><h3>Pha mực và cá nhân hóa</h3><p>Tự pha màu mực, lắp và cá nhân hóa cây bút của riêng mình.</p></article>
+      <article><span class="num">V</span><h3>Workshop chữ viết</h3><p>Calligraphy, thư pháp Việt, Hán Nôm, sketching và journaling.</p></article>
+      <article><span class="num">VI</span><h3>Talkshow và gặp gỡ</h3><p>Câu chuyện nhà sưu tầm, Pen Talk quốc tế và Pen Community Meet.</p></article>
+    </div>
+  </section>
+
+  <section id="cac-mua" class="band">
+    <div class="wrap section stack center" style="gap: 40px">
+      <p class="script">Hành trình các mùa</p>
+      <div class="editions">
+        <div class="edition"><div class="ph">[Ảnh Mini Pen Show Hà Nội 1]</div><div class="body"><div class="top"><span class="year">2015</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 1</span><span class="meta">[Địa điểm]</span></div></div>
+        <div class="edition"><div class="ph">[Ảnh Mini Pen Show Hà Nội 2]</div><div class="body"><div class="top"><span class="year">2016</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 2</span><span class="meta">[Địa điểm]</span></div></div>
+        <div class="edition"><div class="ph">[Ảnh Vietnam Pen Show 2024]</div><div class="body"><div class="top"><span class="year">2024</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2024</span><span class="meta">Văn Miếu Quốc Tử Giám · Minigame “Chuyện bút, chuyện mình”</span></div></div>
+        <div class="edition"><div class="ph">[Ảnh Vietnam Pen Show 2025]</div><div class="body"><div class="top"><span class="year">2025</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2025</span><span class="meta">Văn Miếu Quốc Tử Giám · Hành trình qua nét bút · Workshop Calligraphy và Ink Blending by Sailor</span></div></div>
+        <a class="edition current" href="2026.html"><div class="ph">[Ảnh Vietnam Pen Show 2026]</div><div class="body"><div class="top"><span class="year">2026</span><span class="tag">SẮP DIỄN RA</span></div><span class="name">Vietnam Pen Show 2026</span><span class="meta">Hồ Văn, Văn Miếu Quốc Tử Giám · không gian rộng hơn các mùa trước · Lưu nét xưa, Viết ngày mai</span></div></a>
+      </div>
+      <div class="stats rule-top">
+        <div><div class="n">[SỐ]</div><div class="l">mùa Pen Show đã tổ chức</div></div>
+        <div><div class="n">[SỐ]</div><div class="l">lượt khách tham dự</div></div>
+        <div><div class="n">[SỐ]</div><div class="l">thương hiệu và nghệ nhân</div></div>
+        <div><div class="n">[SỐ]</div><div class="l">quốc gia góp mặt</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="the-gioi-but" class="wrap section split">
+    <div class="stack" style="gap: 20px">
+      <p class="script">Thế giới bút máy</p>
+      <p class="display" style="font-size: 26px; line-height: 1.35">Một thế giới bắt đầu từ một nét mực...</p>
+      <p class="body-lg" style="font-size: 17px">Phía sau một cây bút máy là cả lịch sử, kỹ thuật, nghệ thuật và những câu chuyện con người. Kho kiến thức dành cho cả người mới bắt đầu lẫn nhà sưu tầm.</p>
+      <a class="btn ghost sm" style="align-self: flex-start" href="#the-gioi-but">Bắt đầu với Nhập môn bút máy</a>
+    </div>
+    <div class="topics">
+      <a href="#the-gioi-but"><span><i>01</i>Nhập môn bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>02</i>Lịch sử bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>03</i>Cấu tạo bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>04</i>Thế giới ngòi bút</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>05</i>Hệ thống bơm mực</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>06</i>Mực</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>07</i>Giấy và vật liệu viết</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>08</i>Vật liệu và chế tác</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>09</i>Sử dụng và chăm sóc</span><span aria-hidden="true">→</span></a>
+      <a href="#the-gioi-but"><span><i>10</i>Sửa chữa và phục chế</span><span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section id="cong-dong" class="band">
+    <div class="wrap section stack center" style="gap: 40px">
+      <p class="script">Cộng đồng</p>
+      <div class="news">
+        <a href="2026.html#cau-chuyen"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">CẢM HỨNG</span><span class="t">950 năm Đạo học, từ Quốc Tử Giám 1076 đến hôm nay</span></div></a>
+        <a href="#cong-dong"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Thư pháp Quốc ngữ bằng bút máy: 5 mẹo nhỏ</span></div></a>
+        <a href="#cong-dong"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Copperplate và Gothic cho tiếng Việt có dấu</span></div></a>
+      </div>
+      <div class="btns">
+        <a class="btn ghost sm" href="http://vietnampen.com/">Tất cả tin tức</a>
+        <a class="btn ghost sm" href="#cong-dong">Tham gia nhóm Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section stack center" style="padding-block: 88px">
+    <p class="eyebrow">Thương hiệu đồng hành</p>
+    <div class="brands">
+      <span>Pilot Vietnam</span><span>Sailor</span><span>Bút máy Sao Khuê</span><span>Cánh Diều</span><span>ConCoPens</span><span>Vanderpens</span><span>Luxurypen</span><span>Ananjapan</span><span>Nhung Kiến Khoa</span><span>Dotgrid Notebooks</span><span>Họa Dó</span><span>Hoa lá cỏ</span><span>Napoland</span><span>Út Châu Calligraphy</span><span>Blus Saigon</span>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid var(--ink)">
+    <div class="wrap section duo">
+      <form id="nhan-tin" class="panel js-form" aria-label="Nhận tin các mùa tới">
+        <p class="script">Nhận tin</p>
+        <p class="muted" style="font-weight: 300">Thông báo sớm về các mùa Pen Show, workshop và cuộc thi viết.</p>
+        <label class="field" for="nt-email">EMAIL<input id="nt-email" type="email" required autocomplete="email" placeholder="ten@email.com"></label>
+        <button class="btn" type="submit">Đăng ký nhận tin</button>
+        <p class="form-note" aria-live="polite"></p>
+      </form>
+      <div id="doi-tac" class="panel dark">
+        <p class="script">Đồng hành</p>
+        <p class="txt" style="font-weight: 300; flex: 1">Dành cho thương hiệu, nhà phân phối, nghệ nhân và nhà sưu tầm muốn trưng bày, tài trợ hoặc tổ chức workshop tại các mùa Pen Show.</p>
+        <a class="btn light" style="align-self: flex-start" href="#doi-tac">Liên hệ hợp tác</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Vietnam Pen · Kết nối bằng cây bút, lưu giữ bằng nét chữ</span>
+    <nav aria-label="Liên kết cuối trang"><a href="2026.html">Mùa 2026</a><a href="#the-gioi-but">Thế giới bút</a><a href="#cong-dong">Facebook</a><a href="#doi-tac">Liên hệ</a></nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.querySelectorAll('.js-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var note = form.querySelector('.form-note');
+      if (note) {
+        note.textContent = 'Bản xem trước: biểu mẫu chưa nối với Google Form hoặc Tally, nên thông tin chưa được gửi đi.';
+      }
+    });
+  });
+  var d = document.getElementById('cd-d');
+  if (!d) return;
+  var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
+  var open = new Date('2026-12-05T09:00:00+07:00').getTime();
+  function tick() {
+    var diff = Math.max(0, open - Date.now());
+    d.textContent = Math.floor(diff / 86400000);
+    h.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+    m.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>
