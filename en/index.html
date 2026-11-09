@@ -233,6 +233,20 @@ footer a { color: var(--muted); }
 .pair img { aspect-ratio: 3 / 2; border: 1px solid var(--ink); height: auto; }
 @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
 
+/* Partner form (inside the dark panel) */
+.duo { align-items: start; }
+.partner-form { display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--on-ink-muted); padding-top: 20px; margin-top: 4px; }
+.panel.dark .field, .panel.dark legend { color: var(--on-ink); }
+.panel.dark .form-note { color: var(--on-ink-muted); }
+.panel.dark .form-note[data-ok] { color: var(--on-ink); }
+.field textarea { font: inherit; font-size: 16px; letter-spacing: 0; font-weight: 400; color: var(--ink); padding: 12px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); resize: vertical; }
+.field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.checks { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 4px 16px; }
+.checks legend { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; padding: 0; margin-bottom: 8px; }
+.check { display: flex; align-items: center; gap: 10px; min-height: 40px; font-size: 15px; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--red); flex: none; }
+.checks.invalid legend::after { content: " · " attr(data-msg); color: #FFB4B4; letter-spacing: 0; text-transform: none; }
+
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 </style>
@@ -272,7 +286,7 @@ body { margin: 0; }
       <p class="script">Connected by the pen, kept by the hand</p>
       <div class="btns" style="margin-top: 8px">
         <a class="btn" href="2026.html">Explore the 2026 season</a>
-        <a class="btn ghost" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Hear about future seasons</a>
+        <a class="btn ghost" href="#newsletter">Hear about future seasons</a>
       </div>
     </div>
   </section>
@@ -366,15 +380,36 @@ body { margin: 0; }
 
   <section style="border-top: 1px solid var(--ink)">
     <div class="wrap section duo">
-      <div id="newsletter" class="panel">
+      <form id="newsletter" class="panel gform" action="https://docs.google.com/forms/d/e/1FAIpQLScdxNqVYUvYdLFvkjU3dlHVUWl8NnrkCOtGKv5WuwdCqf723A/formResponse" method="post" target="_blank" aria-label="Stay in touch">
         <p class="script">Stay in touch</p>
-        <p class="muted" style="font-weight: 300; flex: 1">Early news about Pen Show seasons, workshops and writing contests.</p>
-        <a class="btn" style="align-self: flex-start" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Subscribe</a>
-      </div>
+        <p class="muted" style="font-weight: 300">Early news about Pen Show seasons, workshops and writing contests.</p>
+        <label class="field" for="nt-email">EMAIL<input id="nt-email" name="entry.1017743792" type="email" required autocomplete="email" placeholder="name@email.com"></label>
+        <button class="btn" type="submit">Subscribe</button>
+        <p class="form-note" aria-live="polite"></p>
+      </form>
       <div id="partners" class="panel dark">
         <p class="script">Partner with us</p>
-        <p class="txt" style="font-weight: 300; flex: 1">For brands, distributors, artisans and collectors who would like to exhibit, sponsor or run a workshop at a Pen Show season.</p>
-        <a class="btn light" style="align-self: flex-start" href="#partners">Get in touch</a>
+        <p class="txt" style="font-weight: 300">For brands, distributors, artisans and collectors who would like to exhibit, sponsor or run a workshop at a Pen Show season.</p>
+        <button class="btn light" type="button" style="align-self: flex-start" aria-expanded="false" aria-controls="hop-tac-form" data-toggle="hop-tac-form">Get in touch</button>
+        <form id="hop-tac-form" class="gform partner-form" action="https://docs.google.com/forms/d/e/1FAIpQLScss5LkxqBHy6HiiJ294IbJFOfmC8d0XzU3HXDccZufxxYn9Q/formResponse" method="post" target="_blank" hidden>
+          <label class="field" for="ht-name">FULL NAME *<input id="ht-name" name="entry.1742423333" type="text" required autocomplete="name"></label>
+          <label class="field" for="ht-org">BRAND / ORGANISATION<input id="ht-org" name="entry.2041655427" type="text" autocomplete="organization"></label>
+          <div class="field-row">
+            <label class="field" for="ht-email">EMAIL *<input id="ht-email" name="entry.1719042882" type="email" required autocomplete="email"></label>
+            <label class="field" for="ht-phone">PHONE<input id="ht-phone" name="entry.1227363123" type="tel" autocomplete="tel"></label>
+          </div>
+          <fieldset class="checks" data-required>
+            <legend>YOU ARE *</legend>
+            <label class="check"><input type="checkbox" name="entry.788206983" value="Thương hiệu bút / mực / giấy"><span>Pen, ink or paper brand</span></label><label class="check"><input type="checkbox" name="entry.788206983" value="Nhà phân phối, cửa hàng"><span>Distributor or shop</span></label><label class="check"><input type="checkbox" name="entry.788206983" value="Nghệ nhân"><span>Artisan</span></label><label class="check"><input type="checkbox" name="entry.788206983" value="Nhà sưu tầm"><span>Collector</span></label><label class="check"><input type="checkbox" name="entry.788206983" value="Khác"><span>Other</span></label>
+          </fieldset>
+          <fieldset class="checks" data-required>
+            <legend>HOW YOU WOULD LIKE TO WORK WITH US *</legend>
+            <label class="check"><input type="checkbox" name="entry.1611878631" value="Thuê gian trưng bày"><span>Rent an exhibition booth</span></label><label class="check"><input type="checkbox" name="entry.1611878631" value="Tài trợ"><span>Sponsorship</span></label><label class="check"><input type="checkbox" name="entry.1611878631" value="Tổ chức workshop"><span>Run a workshop</span></label><label class="check"><input type="checkbox" name="entry.1611878631" value="Tham gia talkshow"><span>Speak at a talkshow</span></label><label class="check"><input type="checkbox" name="entry.1611878631" value="Khác"><span>Other</span></label>
+          </fieldset>
+          <label class="field" for="ht-msg">YOUR MESSAGE<textarea id="ht-msg" name="entry.1307130763" rows="4"></textarea></label>
+          <button class="btn light" type="submit">Send</button>
+          <p class="form-note" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -389,6 +424,52 @@ body { margin: 0; }
 
 <script>
 (function () {
+  var en = document.documentElement.lang === 'en';
+  document.querySelectorAll('form.gform').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      if (!window.fetch || !window.FormData) return;
+      e.preventDefault();
+      var bad = null;
+      form.querySelectorAll('fieldset[data-required]').forEach(function (fs) {
+        var ok = fs.querySelector('input:checked');
+        fs.classList.toggle('invalid', !ok);
+        fs.querySelector('legend').setAttribute('data-msg', en ? 'choose at least one' : 'chọn ít nhất một mục');
+        if (!ok && !bad) bad = fs.querySelector('input');
+      });
+      if (!form.reportValidity()) return;
+      if (bad) { bad.focus(); return; }
+      var btn = form.querySelector('button[type=submit]');
+      var note = form.querySelector('.form-note');
+      btn.disabled = true;
+      fetch(form.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+        .then(function () {
+          var partner = form.classList.contains('partner-form');
+          form.reset();
+          note.setAttribute('data-ok', '');
+          note.textContent = partner
+            ? (en ? 'Thank you! The Vietnam Pen Show team will get back to you soon.' : 'Cảm ơn bạn! Ban tổ chức Vietnam Pen Show sẽ liên hệ lại sớm.')
+            : (en ? 'Thank you! We will send Pen Show news to this email.' : 'Cảm ơn bạn! Chúng tôi sẽ gửi tin Pen Show đến email này.');
+        })
+        .catch(function () {
+          note.removeAttribute('data-ok');
+          note.textContent = en ? 'Could not send. Please check your connection and try again.' : 'Chưa gửi được. Bạn kiểm tra kết nối mạng rồi thử lại nhé.';
+        })
+        .then(function () { btn.disabled = false; });
+    });
+  });
+  document.querySelectorAll('[data-toggle]').forEach(function (btn) {
+    var target = document.getElementById(btn.getAttribute('data-toggle'));
+    function set(open) {
+      target.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      if (open) { var f = target.querySelector('input'); if (f) f.focus({ preventScroll: true }); }
+    }
+    btn.addEventListener('click', function () { set(target.hidden); });
+    if (location.hash === '#' + btn.closest('[id]').id) set(true);
+  });
+  document.querySelectorAll('fieldset[data-required]').forEach(function (fs) {
+    fs.addEventListener('change', function () { if (fs.querySelector('input:checked')) fs.classList.remove('invalid'); });
+  });
   var d = document.getElementById('cd-d');
   if (!d) return;
   var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
