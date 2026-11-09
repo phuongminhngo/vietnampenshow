@@ -241,7 +241,7 @@ body { margin: 0; }
     </nav>
     <div class="header-end">
       <span class="lang"><a href="../2026.html" lang="vi" hreflang="vi">VI</a> · <b aria-current="page">EN</b></span>
-      <a class="btn sm" href="#register">Register</a>
+      <a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i" rel="noopener">Directions</a>
     </div>
   </div>
 </header>
@@ -264,9 +264,10 @@ body { margin: 0; }
         <span>Hồ Văn · 58 Quốc Tử Giám Street, Hanoi</span>
       </div>
       <div class="btns">
-        <a class="btn" href="#register">Register to attend</a>
-        <a class="btn ghost" href="#programme">See the programme</a>
+        <a class="btn" href="#programme">See the programme</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i" rel="noopener">Directions</a>
       </div>
+      <p class="eyebrow muted">No registration needed, just come along</p>
       <div class="countdown" aria-label="Time until the opening ceremony">
         <span class="sub" style="font-size: 18px">Opening in</span>
         <div class="cd-units">
@@ -370,6 +371,7 @@ body { margin: 0; }
         </div>
         <div class="facts">
           <div><span class="eyebrow muted">Opening hours</span><span>08:30 to 17:00 · Community meetup from 17:00 on Saturday</span></div>
+          <div><span class="eyebrow muted">Registration</span><span>No registration needed</span></div>
           <div><span class="eyebrow muted">Admission</span><span>[FREE or TICKET PRICE]</span></div>
         </div>
         <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i">
@@ -382,17 +384,11 @@ body { margin: 0; }
           <details><summary>Is the event suitable for children?</summary><p>[ANSWER]</p></details>
         </div>
       </div>
-      <form id="register" class="panel js-form" aria-label="Register to attend" style="flex: 1 1 340px; align-self: flex-start">
-        <p class="script" style="text-align: center">Register</p>
-        <p class="muted" style="text-align: center; font-size: 15px; font-weight: 300; margin-bottom: 4px">Get the workshop schedule and a reminder before opening day.</p>
-        <label class="field" for="dk-name">FULL NAME<input id="dk-name" type="text" required autocomplete="name"></label>
-        <label class="field" for="dk-email">EMAIL<input id="dk-email" type="email" required autocomplete="email"></label>
-        <label class="field" for="dk-day">WHICH DAY
-          <select id="dk-day"><option>Both days</option><option>Saturday 5 December</option><option>Sunday 6 December</option></select>
-        </label>
-        <button class="btn" type="submit" style="margin-top: 8px">Save my spot</button>
-        <p class="form-note" aria-live="polite"></p>
-      </form>
+      <div id="newsletter" class="panel" style="flex: 1 1 340px; align-self: flex-start">
+        <p class="script" style="text-align: center">Stay in touch</p>
+        <p class="muted" style="text-align: center; font-size: 15px; font-weight: 300">No registration is needed. Leave your email if you would like the workshop schedule and a reminder before opening day.</p>
+        <a class="btn" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Subscribe</a>
+      </div>
     </div>
   </section>
 </main>
@@ -406,17 +402,6 @@ body { margin: 0; }
 
 <script>
 (function () {
-  document.querySelectorAll('.js-form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var note = form.querySelector('.form-note');
-      if (note) {
-        note.textContent = document.documentElement.lang === 'en'
-          ? 'Preview only: this form is not connected yet, so nothing has been sent.'
-          : 'Bản xem trước: biểu mẫu chưa được kết nối, nên thông tin chưa được gửi đi.';
-      }
-    });
-  });
   var d = document.getElementById('cd-d');
   if (!d) return;
   var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');

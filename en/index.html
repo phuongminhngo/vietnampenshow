@@ -264,7 +264,7 @@ body { margin: 0; }
       <p class="script">Connected by the pen, kept by the hand</p>
       <div class="btns" style="margin-top: 8px">
         <a class="btn" href="2026.html">Explore the 2026 season</a>
-        <a class="btn ghost" href="#newsletter">Hear about future seasons</a>
+        <a class="btn ghost" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Hear about future seasons</a>
       </div>
     </div>
   </section>
@@ -358,13 +358,11 @@ body { margin: 0; }
 
   <section style="border-top: 1px solid var(--ink)">
     <div class="wrap section duo">
-      <form id="newsletter" class="panel js-form" aria-label="Hear about future seasons">
+      <div id="newsletter" class="panel">
         <p class="script">Stay in touch</p>
-        <p class="muted" style="font-weight: 300">Early news about Pen Show seasons, workshops and writing contests.</p>
-        <label class="field" for="nt-email">EMAIL<input id="nt-email" type="email" required autocomplete="email" placeholder="name@email.com"></label>
-        <button class="btn" type="submit">Subscribe</button>
-        <p class="form-note" aria-live="polite"></p>
-      </form>
+        <p class="muted" style="font-weight: 300; flex: 1">Early news about Pen Show seasons, workshops and writing contests.</p>
+        <a class="btn" style="align-self: flex-start" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Subscribe</a>
+      </div>
       <div id="partners" class="panel dark">
         <p class="script">Partner with us</p>
         <p class="txt" style="font-weight: 300; flex: 1">For brands, distributors, artisans and collectors who would like to exhibit, sponsor or run a workshop at a Pen Show season.</p>
@@ -383,17 +381,6 @@ body { margin: 0; }
 
 <script>
 (function () {
-  document.querySelectorAll('.js-form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var note = form.querySelector('.form-note');
-      if (note) {
-        note.textContent = document.documentElement.lang === 'en'
-          ? 'Preview only: this form is not connected yet, so nothing has been sent.'
-          : 'Bản xem trước: biểu mẫu chưa được kết nối, nên thông tin chưa được gửi đi.';
-      }
-    });
-  });
   var d = document.getElementById('cd-d');
   if (!d) return;
   var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');

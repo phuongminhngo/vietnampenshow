@@ -241,7 +241,7 @@ body { margin: 0; }
     </nav>
     <div class="header-end">
       <span class="lang"><b aria-current="page">VI</b> · <a href="en/2026.html" lang="en" hreflang="en">EN</a></span>
-      <a class="btn sm" href="#dang-ky">Đăng ký</a>
+      <a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i" rel="noopener">Chỉ đường</a>
     </div>
   </div>
 </header>
@@ -264,9 +264,10 @@ body { margin: 0; }
         <span>Hồ Văn · 58 P. Quốc Tử Giám, Hà Nội</span>
       </div>
       <div class="btns">
-        <a class="btn" href="#dang-ky">Đăng ký tham dự</a>
-        <a class="btn ghost" href="#chuong-trinh">Xem chương trình</a>
+        <a class="btn" href="#chuong-trinh">Xem chương trình</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i" rel="noopener">Chỉ đường</a>
       </div>
+      <p class="eyebrow muted">Không cần đăng ký trước, mời bạn ghé thăm</p>
       <div class="countdown" aria-label="Thời gian đến lễ khai mạc">
         <span class="sub" style="font-size: 18px">Khai mạc sau</span>
         <div class="cd-units">
@@ -370,6 +371,7 @@ body { margin: 0; }
         </div>
         <div class="facts">
           <div><span class="eyebrow muted">Giờ mở cửa</span><span>08:30 đến 17:00 · Cộng đồng gặp mặt từ 17:00 thứ Bảy</span></div>
+          <div><span class="eyebrow muted">Đăng ký</span><span>Không cần đăng ký trước</span></div>
           <div><span class="eyebrow muted">Vé vào cửa</span><span>[MIỄN PHÍ hoặc GIÁ VÉ]</span></div>
         </div>
         <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i">
@@ -382,17 +384,11 @@ body { margin: 0; }
           <details><summary>Sự kiện có phù hợp với trẻ em?</summary><p>[TRẢ LỜI]</p></details>
         </div>
       </div>
-      <form id="dang-ky" class="panel js-form" aria-label="Đăng ký tham dự" style="flex: 1 1 340px; align-self: flex-start">
-        <p class="script" style="text-align: center">Đăng ký</p>
-        <p class="muted" style="text-align: center; font-size: 15px; font-weight: 300; margin-bottom: 4px">Nhận lịch workshop và lời nhắc trước ngày khai mạc.</p>
-        <label class="field" for="dk-name">HỌ VÀ TÊN<input id="dk-name" type="text" required autocomplete="name"></label>
-        <label class="field" for="dk-email">EMAIL<input id="dk-email" type="email" required autocomplete="email"></label>
-        <label class="field" for="dk-day">NGÀY THAM DỰ
-          <select id="dk-day"><option>Cả hai ngày</option><option>Thứ Bảy 05.12</option><option>Chủ nhật 06.12</option></select>
-        </label>
-        <button class="btn" type="submit" style="margin-top: 8px">Giữ chỗ của tôi</button>
-        <p class="form-note" aria-live="polite"></p>
-      </form>
+      <div id="nhan-tin" class="panel" style="flex: 1 1 340px; align-self: flex-start">
+        <p class="script" style="text-align: center">Nhận tin</p>
+        <p class="muted" style="text-align: center; font-size: 15px; font-weight: 300">Sự kiện không cần đăng ký. Để lại email nếu bạn muốn nhận lịch workshop và lời nhắc trước ngày khai mạc.</p>
+        <a class="btn" href="https://forms.gle/TR6WmbwvAYqggD98A" rel="noopener">Đăng ký nhận tin</a>
+      </div>
     </div>
   </section>
 </main>
@@ -406,17 +402,6 @@ body { margin: 0; }
 
 <script>
 (function () {
-  document.querySelectorAll('.js-form').forEach(function (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var note = form.querySelector('.form-note');
-      if (note) {
-        note.textContent = document.documentElement.lang === 'en'
-          ? 'Preview only: this form is not connected yet, so nothing has been sent.'
-          : 'Bản xem trước: biểu mẫu chưa được kết nối, nên thông tin chưa được gửi đi.';
-      }
-    });
-  });
   var d = document.getElementById('cd-d');
   if (!d) return;
   var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
