@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vietnam Pen Show 2026</title>
+<meta name="description" content="Vietnam Pen Show 2026, 5 to 6 December 2026 at Hồ Văn, Temple of Literature, Hanoi.">
+<link rel="alternate" hreflang="vi" href="https://vietnampenshow.com/2026.html">
+<link rel="alternate" hreflang="en" href="https://vietnampenshow.com/en/2026.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Ballet:opsz@16..72&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a printed invitation on white paper. Centered serif titles, Ballet script as section names, thin ink rules, red only for the current season. */
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #FAF8F4;
+  --tint: #EFEBE4;
+  --ink: #231815;
+  --muted: #5E5650;
+  --rule-soft: #D8D2C8;
+  --on-ink: #FFFFFF;
+  --on-ink-muted: #D8D2C8;
+  --red: #A8141C;
+  --f-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --f-script: 'Ballet', 'Playfair Display', Georgia, cursive;
+  --f-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter-l: max(24px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(24px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6; font-weight: 400;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: var(--ink); }
+a:hover { color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
+img { max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.wrap.narrow { max-width: 920px; }
+.section { padding-block: 96px; }
+.band { background: var(--paper-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.band + .band { border-top: 0; }
+.stack { display: flex; flex-direction: column; gap: 24px; }
+.center { align-items: center; text-align: center; }
+
+.script { font-family: var(--f-script); font-weight: 400; font-size: clamp(48px, 7vw, 68px); line-height: 1.25; }
+.display { font-family: var(--f-display); font-weight: 400; }
+.lede { font-family: var(--f-display); font-weight: 400; font-size: clamp(24px, 3.2vw, 38px); line-height: 1.3; max-width: 820px; }
+.sub { font-family: var(--f-display); font-style: italic; font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); }
+.body-lg { font-size: 18px; font-weight: 300; color: var(--muted); max-width: 66ch; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.pillars { font-weight: 600; font-size: 13px; letter-spacing: 0.14em; }
+
+/* Ribbon + header */
+.ribbon { display: block; background: var(--ink); color: var(--on-ink); text-decoration: none; }
+.ribbon:hover { color: var(--on-ink); }
+.ribbon .wrap { padding-block: 11px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; font-size: 14px; text-align: center; }
+.ribbon b { letter-spacing: 0.08em; }
+.ribbon u { font-weight: 600; text-underline-offset: 3px; }
+
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+.site-header .wrap { padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-size: 20px; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; gap: 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav a { text-decoration: none; padding-block: 12px; white-space: nowrap; }
+.header-end { display: flex; align-items: center; gap: 16px; }
+.lang { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.lang b { color: var(--ink); }
+.lang a { color: var(--muted); text-decoration: none; display: inline-block; padding: 12px 4px; }
+.lang a:hover { color: var(--red); }
+@media (max-width: 900px) {
+  .site-header .wrap { padding-bottom: 0; }
+  .nav { order: 3; flex: 1 0 100%; overflow-x: auto; gap: 22px; border-top: 1px solid var(--rule-soft); scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+}
+
+/* Buttons */
+.btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 16px 30px;
+  font: inherit; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--ink); background: var(--ink); color: var(--on-ink); cursor: pointer;
+}
+.btn:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.btn.sm { min-height: 44px; padding: 10px 18px; font-size: 13px; }
+.btn.light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn.light:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+
+/* Hero */
+.hero { padding-block: 88px 72px; }
+.hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 8.4vw, 108px); line-height: 1; letter-spacing: 0.01em; }
+.hero .tagline { font-weight: 700; font-size: clamp(15px, 2vw, 22px); letter-spacing: 0.04em; }
+.hero .script { font-size: clamp(40px, 6vw, 72px); line-height: 1.15; }
+.photo {
+  aspect-ratio: 21 / 9; max-width: 100%; background: var(--tint); border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; color: var(--muted); font-size: 14px;
+}
+
+/* Bordered cell grid */
+.cells { width: 100%; display: grid; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); text-align: left; }
+.cells > * { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 32px 26px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cells .num { font-family: var(--f-display); font-style: italic; font-size: 38px; line-height: 1; }
+.cells h3 { font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+.cells p { font-size: 15px; font-weight: 300; color: var(--muted); }
+.cells.c3 { grid-template-columns: repeat(3, 1fr); }
+.cells.c5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1000px) { .cells.c5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 820px) { .cells.c3, .cells.c5 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .cells.c3, .cells.c5 { grid-template-columns: 1fr; } }
+
+/* Editions */
+.editions { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; text-align: left; }
+.edition { border: 1px solid var(--ink); background: var(--paper); text-decoration: none; display: flex; flex-direction: column; }
+.edition.current { outline: 2px solid var(--red); outline-offset: -2px; }
+.edition .ph { aspect-ratio: 4 / 3; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.edition .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 4px; }
+.edition .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.edition .year { font-family: var(--f-display); font-size: 32px; line-height: 1.1; }
+.edition .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.edition.current .tag { color: var(--red); }
+.edition .name { font-weight: 600; }
+.edition .meta { font-size: 14px; color: var(--muted); font-weight: 300; }
+
+.stats { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; }
+.stats .n { font-family: var(--f-display); font-size: 46px; line-height: 1.2; }
+.stats .l { font-size: 14px; color: var(--muted); }
+.rule-top { border-top: 1px solid var(--ink); padding-top: 40px; }
+
+/* Topics */
+.split { display: flex; flex-wrap: wrap; gap: 48px; }
+.split > :first-child { flex: 1 1 340px; min-width: 0; }
+.split > :last-child { flex: 999 1 520px; min-width: 0; }
+.topics { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px; border-top: 1px solid var(--ink); align-self: start; }
+@media (max-width: 560px) { .topics { grid-template-columns: 1fr; } }
+.topics a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 2px; border-bottom: 1px solid var(--ink); text-decoration: none; font-size: 16px; }
+.topics i { font-family: var(--f-display); color: var(--muted); margin-right: 12px; }
+
+/* News */
+.news { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; text-align: left; }
+.news a { background: var(--paper); border: 1px solid var(--ink); text-decoration: none; display: flex; flex-direction: column; }
+.news .ph { aspect-ratio: 16 / 9; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.news .body { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.news .cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.news .t { font-family: var(--f-display); font-size: 20px; line-height: 1.35; }
+
+.brands { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; max-width: 980px; }
+.brands span { font-family: var(--f-display); font-size: 21px; }
+
+/* Panels & forms */
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.panel { border: 1.5px solid var(--ink); background: var(--paper); padding: 40px; display: flex; flex-direction: column; gap: 16px; }
+.panel.dark { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.panel.dark p.txt { color: var(--on-ink-muted); }
+.panel .script { font-size: 52px; line-height: 1.2; }
+@media (max-width: 520px) { .panel { padding: 28px 22px; } }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; }
+.field input, .field select {
+  font: inherit; font-size: 16px; letter-spacing: 0; font-weight: 400; color: var(--ink);
+  padding: 12px; min-height: 48px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper);
+}
+.form-note { font-size: 14px; color: var(--muted); }
+.form-note[data-ok] { color: var(--ink); font-weight: 600; }
+
+footer { border-top: 1px solid var(--ink); }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer a { color: var(--muted); }
+
+/* Season page */
+.partners { display: flex; align-items: stretch; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.partner .eyebrow { font-size: 10px; letter-spacing: 0.08em; }
+.partner img { height: 80px; width: auto; }
+.partner-rule { width: 1px; background: var(--ink); }
+@media (max-width: 520px) { .partner img { height: 64px; } }
+.when { border: 1.5px solid var(--ink); padding: 16px 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; font-size: clamp(16px, 2vw, 21px); }
+@media (max-width: 520px) { .when span[aria-hidden] { display: none; } }
+.countdown { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; margin-top: 8px; }
+.cd-units { display: flex; gap: 24px; }
+.cd-units > div { display: flex; flex-direction: column; align-items: center; min-width: 56px; }
+.cd-n { font-family: var(--f-display); font-size: 42px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.cd-l { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; }
+
+.day h3 { font-weight: 700; font-size: 18px; letter-spacing: 0.02em; }
+.day .q { font-family: var(--f-display); font-style: italic; font-size: 22px; margin: 4px 0 12px; }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.rows li { display: flex; flex-wrap: wrap; gap: 2px 40px; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.rows time { flex: 0 0 160px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rows div { flex: 1 1 320px; min-width: 0; font-size: 17px; }
+.rows small { display: block; font-size: 15px; color: var(--muted); font-weight: 300; }
+
+.red-band { background: var(--red); color: var(--on-ink); }
+
+.history { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+@media (max-width: 640px) { .history { grid-template-columns: repeat(2, 1fr); } }
+.history a { padding: 22px 12px 4px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; text-align: center; }
+.history .display { font-size: 34px; }
+.history a > span:last-child { font-size: 14px; color: var(--muted); }
+
+.addr { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px; font-size: 18px; }
+.addr div { display: flex; flex-direction: column; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; border-top: 1px solid var(--ink); padding-top: 24px; }
+.facts div { display: flex; flex-direction: column; gap: 2px; }
+.map {
+  aspect-ratio: 16 / 7; max-width: 100%; border: 1.5px solid var(--ink); text-decoration: none; padding: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, var(--rule-soft) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, var(--rule-soft) 39px 40px), var(--paper);
+}
+.map .display { background: var(--paper); padding: 2px 10px; }
+.map .eyebrow { background: var(--paper); padding: 2px 10px; }
+.faq details { border-bottom: 1px solid var(--rule-soft); }
+.faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
+.faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
+
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">← VIETNAM PEN SHOW</a>
+    <nav class="nav" aria-label="2026 season navigation">
+      <a href="#story">Story</a>
+      <a href="#spaces">Spaces</a>
+      <a href="#programme">Programme</a>
+      <a href="#info">Info</a>
+    </nav>
+    <div class="header-end">
+      <span class="lang"><a href="../2026.html" lang="vi" hreflang="vi">VI</a> · <b aria-current="page">EN</b></span>
+      <a class="btn sm" href="#register">Register</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="top" class="wrap hero" style="padding-top: 64px">
+    <div class="stack center" style="gap: 26px">
+      <div class="partners">
+        <div class="partner"><span class="eyebrow">Organised by</span><img src="../img/van-mieu.png" alt="Temple of Literature, Văn Miếu Quốc Tử Giám" height="80"></div>
+        <div class="partner-rule" aria-hidden="true"></div>
+        <div class="partner"><span class="eyebrow">In partnership with</span><img src="../img/950-net-chu.png" alt="950 Nét chữ, Vietnam Pen Show 2026" height="80"></div>
+      </div>
+      <h1 style="margin-top: 16px">VIETNAM PEN SHOW 2026</h1>
+      <p class="tagline">KEEPING OLD STROKES, WRITING TOMORROW</p>
+      <p class="sub" style="font-size: clamp(18px, 2.4vw, 28px)">Celebrating 950 years of the Temple of Literature and Imperial Academy (1076 to 2026)</p>
+      <p class="script" style="font-size: clamp(52px, 7vw, 84px); line-height: 1.05; margin-top: 4px">You are cordially invited</p>
+      <div class="when">
+        <span>5 to 6 December 2026</span>
+        <span aria-hidden="true">|</span>
+        <span>Hồ Văn · 58 Quốc Tử Giám Street, Hanoi</span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="#register">Register to attend</a>
+        <a class="btn ghost" href="#programme">See the programme</a>
+      </div>
+      <div class="countdown" aria-label="Time until the opening ceremony">
+        <span class="sub" style="font-size: 18px">Opening in</span>
+        <div class="cd-units">
+          <div><span class="cd-n" id="cd-d">--</span><span class="cd-l">DAYS</span></div>
+          <div><span class="cd-n" id="cd-h">--</span><span class="cd-l">HOURS</span></div>
+          <div><span class="cd-n" id="cd-m">--</span><span class="cd-l">MINUTES</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="band">
+    <div class="wrap narrow section stack center" style="gap: 28px">
+      <p class="script">The story</p>
+      <h2 class="lede">How have people used writing to preserve knowledge, and how do we keep handwriting alive in a digital age?</h2>
+      <p class="pillars">LETTERS · PENS · INK · PAPER · PEOPLE · WRITING CULTURE</p>
+      <p class="body-lg">Văn Miếu, Quốc Tử Giám, the Temple of Literature and Imperial Academy, is Vietnam’s symbol of learning and letters. In 1076 the Lý dynasty founded the Imperial Academy, the country’s first national university. Nearly a millennium later, its maxim “Talented scholars are the lifeblood of the nation” still speaks to every generation of learners. For the 950th anniversary, the Văn Miếu, Quốc Tử Giám Centre for Cultural and Scientific Activities and Vietnam Pen Show turn Hồ Văn into a meeting place for writers, collectors, artisans, brands and the international pen community.</p>
+    </div>
+  </section>
+
+  <section id="spaces" class="wrap section stack center">
+    <p class="script">Spaces</p>
+    <p class="sub" style="margin-bottom: 24px">Walk the circuit and leave with something written by your own hand</p>
+    <div class="cells c5">
+      <article><span class="num">I</span><h3>The heritage of the stroke</h3><p>Pen history from Japan, Europe and America, China and Vietnam.</p></article>
+      <article><span class="num">II</span><h3>The pen today</h3><p>Pilot, Sailor, Cánh Diều, Con Cò Pen and many more brands.</p></article>
+      <article><span class="num">III</span><h3>The penmaker’s hand</h3><p>Nib tuning, ink mixing, pen personalisation, lacquer work.</p></article>
+      <article><span class="num">IV</span><h3>From pen to letter</h3><p>Calligraphy, Vietnamese calligraphy, Hán Nôm script, notebook making.</p></article>
+      <article><span class="num">V</span><h3>950 Nét chữ</h3><p>Contest entries and the collective writing piece.</p></article>
+    </div>
+  </section>
+
+  <section id="programme" class="band">
+    <div class="wrap narrow section stack" style="gap: 56px">
+      <p class="script" style="text-align: center">Programme</p>
+
+      <div class="day">
+        <h3>SATURDAY 5 DECEMBER, A DAY OF PENS AND COLLECTING</h3>
+        <p class="q">“What makes a pen interesting?”</p>
+        <ol class="rows">
+          <li><time>08:30 to 09:00</time><div>Welcome</div></li>
+          <li><time>09:00 to 09:30</time><div>Opening ceremony and first strokes of Vietnam Pen Show</div></li>
+          <li><time>09:30 to 10:00</time><div>The Pen Museum and exhibition spaces open</div></li>
+          <li><time>10:00 to 11:30</time><div>Collector Talkshow</div></li>
+          <li><time>13:30 to 17:00</time><div>Pen Clinic, ink mixing, custom pens, brand experiences, hands-on guidance, International Pen Talk</div></li>
+          <li><time>From 17:00</time><div>PEN COMMUNITY MEET<small>Collectors, brands, artisans and the community get together</small></div></li>
+        </ol>
+      </div>
+
+      <div class="day">
+        <h3>SUNDAY 6 DECEMBER, A DAY OF WRITING AND CULTURE</h3>
+        <p class="q">“What do people do with that pen?”</p>
+        <ol class="rows">
+          <li><time>09:00 to 09:30</time><div>“950 Nét chữ” award ceremony</div></li>
+          <li><time>09:00 to 17:00</time><div>Workshops<small>Vietnamese calligraphy and Hán Nôm, writing, sketching, journaling</small></div></li>
+          <li><time>09:00 to 17:00</time><div>The Pen Museum, brand booths and Pen Clinic stay open</div></li>
+          <li><time>14:00 to 15:00</time><div>Talkshow “950 years, one line of Vietnamese script”<small>With researchers and calligraphy artisans</small></div></li>
+        </ol>
+      </div>
+
+      <p class="sub" style="text-align: center; font-size: 24px">Your presence would be our honour.</p>
+    </div>
+  </section>
+
+  <section class="red-band">
+    <div class="wrap narrow stack center" style="padding-block: 88px; gap: 18px">
+      <p class="display" style="font-size: clamp(40px, 6vw, 72px); line-height: 1">950 PEOPLE</p>
+      <p class="script" style="font-size: clamp(42px, 5vw, 60px); line-height: 1.1">950 strokes</p>
+      <p style="font-size: 18px; font-weight: 300; max-width: 620px">Every visitor writes a word, a short line or a message about learning and knowledge. By the end of the two days, they come together as one collective work for 2026.</p>
+    </div>
+  </section>
+
+  <section class="wrap section stack center" style="gap: 40px">
+    <p class="script">The journey</p>
+    <div class="history">
+      <a href="index.html#seasons"><span class="display">2015</span><span>Mini Pen Show Hanoi 1</span></a>
+      <a href="index.html#seasons"><span class="display">2016</span><span>Mini Pen Show Hanoi 2</span></a>
+      <a href="index.html#seasons"><span class="display">2024</span><span>Vietnam Pen Show 2024</span></a>
+      <a href="index.html#seasons"><span class="display">2025</span><span>Vietnam Pen Show 2025</span></a>
+    </div>
+    <div class="stats">
+      <div><div class="n">[NUMBER]</div><div class="l">visitors at VPS 2025</div></div>
+      <div><div class="n">[NUMBER]</div><div class="l">brands and artisans</div></div>
+      <div><div class="n">[NUMBER]</div><div class="l">countries represented</div></div>
+    </div>
+    <div class="stack center" style="gap: 20px; margin-top: 16px">
+      <p class="eyebrow">Partner brands</p>
+      <div class="brands">
+        <span>Pilot Vietnam</span><span>Sailor</span><span>Bút máy Sao Khuê</span><span>Cánh Diều</span><span>ConCoPens</span><span>Vanderpens</span><span>Luxurypen</span><span>Ananjapan</span><span>Nhung Kiến Khoa</span><span>Dotgrid Notebooks</span><span>Họa Dó</span><span>Hoa lá cỏ</span><span>Napoland</span><span>Út Châu Calligraphy</span><span>Blus Saigon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="info" class="band" style="border-bottom: 0">
+    <div class="wrap section split" style="gap: 56px">
+      <div class="stack" style="gap: 28px; flex: 999 1 460px">
+        <p class="script">Practical info</p>
+        <div class="addr">
+          <div><b>TEMPLE OF LITERATURE</b><span>Hồ Văn · 58 Quốc Tử Giám Street, Hanoi</span></div>
+          <div><b>VIETNAM PEN SHOW</b><span>5 to 6 December 2026</span></div>
+        </div>
+        <div class="facts">
+          <div><span class="eyebrow muted">Opening hours</span><span>08:30 to 17:00 · Community meetup from 17:00 on Saturday</span></div>
+          <div><span class="eyebrow muted">Admission</span><span>[FREE or TICKET PRICE]</span></div>
+        </div>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=V%C4%83n+Mi%E1%BA%BFu+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+58+Qu%E1%BB%91c+T%E1%BB%AD+Gi%C3%A1m+H%C3%A0+N%E1%BB%99i">
+          <span class="display" style="font-size: 22px">Hồ Văn, Temple of Literature</span>
+          <span class="eyebrow">Get directions on Google Maps →</span>
+        </a>
+        <div class="faq">
+          <details><summary>Can I bring my pen for repair?</summary><p>Yes, the Pen Clinic is open on both days. [Note if booking is needed]</p></details>
+          <details><summary>Do workshops need to be booked?</summary><p>[ANSWER]</p></details>
+          <details><summary>Is the event suitable for children?</summary><p>[ANSWER]</p></details>
+        </div>
+      </div>
+      <form id="register" class="panel js-form" aria-label="Register to attend" style="flex: 1 1 340px; align-self: flex-start">
+        <p class="script" style="text-align: center">Register</p>
+        <p class="muted" style="text-align: center; font-size: 15px; font-weight: 300; margin-bottom: 4px">Get the workshop schedule and a reminder before opening day.</p>
+        <label class="field" for="dk-name">FULL NAME<input id="dk-name" type="text" required autocomplete="name"></label>
+        <label class="field" for="dk-email">EMAIL<input id="dk-email" type="email" required autocomplete="email"></label>
+        <label class="field" for="dk-day">WHICH DAY
+          <select id="dk-day"><option>Both days</option><option>Saturday 5 December</option><option>Sunday 6 December</option></select>
+        </label>
+        <button class="btn" type="submit" style="margin-top: 8px">Save my spot</button>
+        <p class="form-note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Vietnam Pen · Connected by the pen, kept by the hand</span>
+    <nav aria-label="Footer links"><a href="index.html">Vietnam Pen Show main page</a><a href="#top">Facebook</a><a href="#top">Contact</a></nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  document.querySelectorAll('.js-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var note = form.querySelector('.form-note');
+      if (note) {
+        note.textContent = document.documentElement.lang === 'en'
+          ? 'Preview only: this form is not connected yet, so nothing has been sent.'
+          : 'Bản xem trước: biểu mẫu chưa được kết nối, nên thông tin chưa được gửi đi.';
+      }
+    });
+  });
+  var d = document.getElementById('cd-d');
+  if (!d) return;
+  var h = document.getElementById('cd-h'), m = document.getElementById('cd-m');
+  var open = new Date('2026-12-05T09:00:00+07:00').getTime();
+  function tick() {
+    var diff = Math.max(0, open - Date.now());
+    d.textContent = Math.floor(diff / 86400000);
+    h.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+    m.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>

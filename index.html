@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vietnam Pen Show</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ngày hội thường niên của những người yêu bút và chữ viết, tại Hà Nội từ 2015.">
+<link rel="alternate" hreflang="vi" href="https://vietnampenshow.com/index.html">
+<link rel="alternate" hreflang="en" href="https://vietnampenshow.com/en/index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Ballet:opsz@16..72&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -72,12 +73,14 @@ img { max-width: 100%; }
 .nav { display: flex; gap: 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .nav a { text-decoration: none; padding-block: 12px; white-space: nowrap; }
 .header-end { display: flex; align-items: center; gap: 16px; }
-.lang { font-size: 13px; font-weight: 600; color: var(--muted); }
+.lang { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.lang b { color: var(--ink); }
+.lang a { color: var(--muted); text-decoration: none; display: inline-block; padding: 12px 4px; }
+.lang a:hover { color: var(--red); }
 @media (max-width: 900px) {
   .site-header .wrap { padding-bottom: 0; }
   .nav { order: 3; flex: 1 0 100%; overflow-x: auto; gap: 22px; border-top: 1px solid var(--rule-soft); scrollbar-width: none; }
   .nav::-webkit-scrollbar { display: none; }
-  .lang { display: none; }
 }
 
 /* Buttons */
@@ -221,8 +224,10 @@ footer a { color: var(--muted); }
 .faq details { border-bottom: 1px solid var(--rule-soft); }
 .faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
 .faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
+
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
 </style>
-<style>body{margin:0}</style>
 </head>
 <body>
 <a class="ribbon" href="2026.html">
@@ -244,7 +249,7 @@ footer a { color: var(--muted); }
       <a href="#doi-tac">Đối tác</a>
     </nav>
     <div class="header-end">
-      <span class="lang">VI · EN</span>
+      <span class="lang"><b aria-current="page">VI</b> · <a href="en/index.html" lang="en" hreflang="en">EN</a></span>
       <a class="btn sm" href="2026.html">Mùa 2026</a>
     </div>
   </div>
@@ -383,7 +388,9 @@ footer a { color: var(--muted); }
       e.preventDefault();
       var note = form.querySelector('.form-note');
       if (note) {
-        note.textContent = 'Bản xem trước: biểu mẫu chưa nối với Google Form hoặc Tally, nên thông tin chưa được gửi đi.';
+        note.textContent = document.documentElement.lang === 'en'
+          ? 'Preview only: this form is not connected yet, so nothing has been sent.'
+          : 'Bản xem trước: biểu mẫu chưa được kết nối, nên thông tin chưa được gửi đi.';
       }
     });
   });
