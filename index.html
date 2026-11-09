@@ -225,6 +225,14 @@ footer a { color: var(--muted); }
 .faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
 .faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
 
+/* Photos */
+.photo { padding: 0; overflow: hidden; }
+.photo img, .edition .ph img, .news .ph img, .pair img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.edition .ph, .news .ph { padding: 0; overflow: hidden; }
+.pair { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.pair img { aspect-ratio: 3 / 2; border: 1px solid var(--ink); height: auto; }
+@media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 </style>
@@ -269,7 +277,7 @@ body { margin: 0; }
     </div>
   </section>
   <div class="wrap" style="padding-bottom: 96px">
-    <div class="photo">[Ảnh toàn cảnh: không khí Pen Show qua các mùa]</div>
+    <div class="photo"><img src="img/vps-hero.jpg" alt="Khách tham quan thử bút và mực tại Vietnam Pen Show, Văn Miếu Quốc Tử Giám" width="1600" height="1066" fetchpriority="high"></div>
   </div>
 
   <section id="su-menh" class="band">
@@ -298,11 +306,11 @@ body { margin: 0; }
     <div class="wrap section stack center" style="gap: 40px">
       <p class="script">Hành trình các mùa</p>
       <div class="editions">
-        <div class="edition"><div class="ph">[Ảnh Mini Pen Show Hà Nội 1]</div><div class="body"><div class="top"><span class="year">2015</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 1</span><span class="meta">[Địa điểm]</span></div></div>
-        <div class="edition"><div class="ph">[Ảnh Mini Pen Show Hà Nội 2]</div><div class="body"><div class="top"><span class="year">2016</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 2</span><span class="meta">[Địa điểm]</span></div></div>
-        <div class="edition"><div class="ph">[Ảnh Vietnam Pen Show 2024]</div><div class="body"><div class="top"><span class="year">2024</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2024</span><span class="meta">Văn Miếu Quốc Tử Giám · Minigame “Chuyện bút, chuyện mình”</span></div></div>
-        <div class="edition"><div class="ph">[Ảnh Vietnam Pen Show 2025]</div><div class="body"><div class="top"><span class="year">2025</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2025</span><span class="meta">Văn Miếu Quốc Tử Giám · Hành trình qua nét bút · Workshop Calligraphy và Ink Blending by Sailor</span></div></div>
-        <a class="edition current" href="2026.html"><div class="ph">[Ảnh Vietnam Pen Show 2026]</div><div class="body"><div class="top"><span class="year">2026</span><span class="tag">SẮP DIỄN RA</span></div><span class="name">Vietnam Pen Show 2026</span><span class="meta">Hồ Văn, Văn Miếu Quốc Tử Giám · không gian rộng hơn các mùa trước · Lưu nét xưa, Viết ngày mai</span></div></a>
+        <div class="edition"><div class="ph"><img src="img/vps-season-2015.jpg" alt="Mini Pen Show Hà Nội 1" width="1600" height="1067" loading="lazy"></div><div class="body"><div class="top"><span class="year">2015</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 1</span><span class="meta">[Địa điểm]</span></div></div>
+        <div class="edition"><div class="ph"><img src="img/vps-season-2016.jpg" alt="Mini Pen Show Hà Nội 2" width="960" height="720" loading="lazy"></div><div class="body"><div class="top"><span class="year">2016</span><span class="tag">LƯU TRỮ</span></div><span class="name">Mini Pen Show Hà Nội 2</span><span class="meta">[Địa điểm]</span></div></div>
+        <div class="edition"><div class="ph"><img src="img/vps-season-2024.jpg" alt="Vietnam Pen Show 2024" width="1600" height="1066" loading="lazy"></div><div class="body"><div class="top"><span class="year">2024</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2024</span><span class="meta">Văn Miếu Quốc Tử Giám · Minigame “Chuyện bút, chuyện mình”</span></div></div>
+        <div class="edition"><div class="ph"><img src="img/vps-season-2025.jpg" alt="Vietnam Pen Show 2025" width="1600" height="898" loading="lazy"></div><div class="body"><div class="top"><span class="year">2025</span><span class="tag">LƯU TRỮ</span></div><span class="name">Vietnam Pen Show 2025</span><span class="meta">Văn Miếu Quốc Tử Giám · Hành trình qua nét bút · Workshop Calligraphy và Ink Blending by Sailor</span></div></div>
+        <a class="edition current" href="2026.html"><div class="ph"><img src="img/vps-hero-alt.jpg" alt="Khách viết thư pháp tại Văn Miếu Quốc Tử Giám" width="1600" height="898" loading="lazy"></div><div class="body"><div class="top"><span class="year">2026</span><span class="tag">SẮP DIỄN RA</span></div><span class="name">Vietnam Pen Show 2026</span><span class="meta">Hồ Văn, Văn Miếu Quốc Tử Giám · không gian rộng hơn các mùa trước · Lưu nét xưa, Viết ngày mai</span></div></a>
       </div>
       <div class="stats rule-top">
         <div><div class="n">[SỐ]</div><div class="l">mùa Pen Show đã tổ chức</div></div>
@@ -338,9 +346,9 @@ body { margin: 0; }
     <div class="wrap section stack center" style="gap: 40px">
       <p class="script">Cộng đồng</p>
       <div class="news">
-        <a href="2026.html#cau-chuyen"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">CẢM HỨNG</span><span class="t">950 năm Đạo học, từ Quốc Tử Giám 1076 đến hôm nay</span></div></a>
-        <a href="#cong-dong"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Thư pháp Quốc ngữ bằng bút máy: 5 mẹo nhỏ</span></div></a>
-        <a href="#cong-dong"><div class="ph">[Ảnh bài viết]</div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Copperplate và Gothic cho tiếng Việt có dấu</span></div></a>
+        <a href="2026.html#cau-chuyen"><div class="ph"><img src="img/vps-community-1.jpg" alt="Nghệ nhân cao tuổi viết thư pháp" width="1600" height="898" loading="lazy"></div><div class="body"><span class="cat">CẢM HỨNG</span><span class="t">950 năm Đạo học, từ Quốc Tử Giám 1076 đến hôm nay</span></div></a>
+        <a href="#cong-dong"><div class="ph"><img src="img/vps-community-2.jpg" alt="Em nhỏ thử chấm mực" width="1600" height="1066" loading="lazy"></div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Thư pháp Quốc ngữ bằng bút máy: 5 mẹo nhỏ</span></div></a>
+        <a href="#cong-dong"><div class="ph"><img src="img/vps-community-3.jpg" alt="Cộng đồng bút tại Mini Pen Show 2024" width="1600" height="805" loading="lazy"></div><div class="body"><span class="cat">MẸO VIẾT</span><span class="t">Copperplate và Gothic cho tiếng Việt có dấu</span></div></a>
       </div>
       <div class="btns">
         <a class="btn ghost sm" href="http://vietnampen.com/">Tất cả tin tức</a>

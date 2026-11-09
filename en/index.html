@@ -225,6 +225,14 @@ footer a { color: var(--muted); }
 .faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
 .faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
 
+/* Photos */
+.photo { padding: 0; overflow: hidden; }
+.photo img, .edition .ph img, .news .ph img, .pair img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.edition .ph, .news .ph { padding: 0; overflow: hidden; }
+.pair { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.pair img { aspect-ratio: 3 / 2; border: 1px solid var(--ink); height: auto; }
+@media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 </style>
@@ -269,7 +277,7 @@ body { margin: 0; }
     </div>
   </section>
   <div class="wrap" style="padding-bottom: 96px">
-    <div class="photo">[Wide photo: the Pen Show atmosphere across the seasons]</div>
+    <div class="photo"><img src="../img/vps-hero.jpg" alt="Visitors trying pens and inks at Vietnam Pen Show, Temple of Literature" width="1600" height="1066" fetchpriority="high"></div>
   </div>
 
   <section id="mission" class="band">
@@ -298,11 +306,11 @@ body { margin: 0; }
     <div class="wrap section stack center" style="gap: 40px">
       <p class="script">The seasons so far</p>
       <div class="editions">
-        <div class="edition"><div class="ph">[Photo: Mini Pen Show Hanoi 1]</div><div class="body"><div class="top"><span class="year">2015</span><span class="tag">ARCHIVE</span></div><span class="name">Mini Pen Show Hanoi 1</span><span class="meta">[Venue]</span></div></div>
-        <div class="edition"><div class="ph">[Photo: Mini Pen Show Hanoi 2]</div><div class="body"><div class="top"><span class="year">2016</span><span class="tag">ARCHIVE</span></div><span class="name">Mini Pen Show Hanoi 2</span><span class="meta">[Venue]</span></div></div>
-        <div class="edition"><div class="ph">[Photo: Vietnam Pen Show 2024]</div><div class="body"><div class="top"><span class="year">2024</span><span class="tag">ARCHIVE</span></div><span class="name">Vietnam Pen Show 2024</span><span class="meta">Temple of Literature · Minigame “Chuyện bút, chuyện mình” (Pen stories, our stories)</span></div></div>
-        <div class="edition"><div class="ph">[Photo: Vietnam Pen Show 2025]</div><div class="body"><div class="top"><span class="year">2025</span><span class="tag">ARCHIVE</span></div><span class="name">Vietnam Pen Show 2025</span><span class="meta">Temple of Literature · A journey through the pen stroke · Calligraphy and Ink Blending workshop by Sailor</span></div></div>
-        <a class="edition current" href="2026.html"><div class="ph">[Photo: Vietnam Pen Show 2026]</div><div class="body"><div class="top"><span class="year">2026</span><span class="tag">UPCOMING</span></div><span class="name">Vietnam Pen Show 2026</span><span class="meta">Hồ Văn, Temple of Literature · a larger space than previous seasons · Keeping old strokes, writing tomorrow</span></div></a>
+        <div class="edition"><div class="ph"><img src="../img/vps-season-2015.jpg" alt="Mini Pen Show Hanoi 1" width="1600" height="1067" loading="lazy"></div><div class="body"><div class="top"><span class="year">2015</span><span class="tag">ARCHIVE</span></div><span class="name">Mini Pen Show Hanoi 1</span><span class="meta">[Venue]</span></div></div>
+        <div class="edition"><div class="ph"><img src="../img/vps-season-2016.jpg" alt="Mini Pen Show Hanoi 2" width="960" height="720" loading="lazy"></div><div class="body"><div class="top"><span class="year">2016</span><span class="tag">ARCHIVE</span></div><span class="name">Mini Pen Show Hanoi 2</span><span class="meta">[Venue]</span></div></div>
+        <div class="edition"><div class="ph"><img src="../img/vps-season-2024.jpg" alt="Vietnam Pen Show 2024" width="1600" height="1066" loading="lazy"></div><div class="body"><div class="top"><span class="year">2024</span><span class="tag">ARCHIVE</span></div><span class="name">Vietnam Pen Show 2024</span><span class="meta">Temple of Literature · Minigame “Chuyện bút, chuyện mình” (Pen stories, our stories)</span></div></div>
+        <div class="edition"><div class="ph"><img src="../img/vps-season-2025.jpg" alt="Vietnam Pen Show 2025" width="1600" height="898" loading="lazy"></div><div class="body"><div class="top"><span class="year">2025</span><span class="tag">ARCHIVE</span></div><span class="name">Vietnam Pen Show 2025</span><span class="meta">Temple of Literature · A journey through the pen stroke · Calligraphy and Ink Blending workshop by Sailor</span></div></div>
+        <a class="edition current" href="2026.html"><div class="ph"><img src="../img/vps-hero-alt.jpg" alt="Visitors writing at the Temple of Literature" width="1600" height="898" loading="lazy"></div><div class="body"><div class="top"><span class="year">2026</span><span class="tag">UPCOMING</span></div><span class="name">Vietnam Pen Show 2026</span><span class="meta">Hồ Văn, Temple of Literature · a larger space than previous seasons · Keeping old strokes, writing tomorrow</span></div></a>
       </div>
       <div class="stats rule-top">
         <div><div class="n">[NUMBER]</div><div class="l">Pen Show seasons held</div></div>
@@ -338,9 +346,9 @@ body { margin: 0; }
     <div class="wrap section stack center" style="gap: 40px">
       <p class="script">Community</p>
       <div class="news">
-        <a href="2026.html#story"><div class="ph">[Article photo]</div><div class="body"><span class="cat">INSPIRATION</span><span class="t">950 years of learning, from the Imperial Academy in 1076 to today</span></div></a>
-        <a href="#community"><div class="ph">[Article photo]</div><div class="body"><span class="cat">WRITING TIPS</span><span class="t">Vietnamese calligraphy with a fountain pen: 5 small tips</span></div></a>
-        <a href="#community"><div class="ph">[Article photo]</div><div class="body"><span class="cat">WRITING TIPS</span><span class="t">Copperplate and Gothic for Vietnamese with diacritics</span></div></a>
+        <a href="2026.html#story"><div class="ph"><img src="../img/vps-community-1.jpg" alt="An elderly artisan writing calligraphy" width="1600" height="898" loading="lazy"></div><div class="body"><span class="cat">INSPIRATION</span><span class="t">950 years of learning, from the Imperial Academy in 1076 to today</span></div></a>
+        <a href="#community"><div class="ph"><img src="../img/vps-community-2.jpg" alt="A child trying out ink" width="1600" height="1066" loading="lazy"></div><div class="body"><span class="cat">WRITING TIPS</span><span class="t">Vietnamese calligraphy with a fountain pen: 5 small tips</span></div></a>
+        <a href="#community"><div class="ph"><img src="../img/vps-community-3.jpg" alt="The pen community at Mini Pen Show 2024" width="1600" height="805" loading="lazy"></div><div class="body"><span class="cat">WRITING TIPS</span><span class="t">Copperplate and Gothic for Vietnamese with diacritics</span></div></a>
       </div>
       <div class="btns">
         <a class="btn ghost sm" href="http://vietnampen.com/">All news</a>

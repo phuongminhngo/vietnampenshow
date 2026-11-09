@@ -225,6 +225,14 @@ footer a { color: var(--muted); }
 .faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
 .faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
 
+/* Photos */
+.photo { padding: 0; overflow: hidden; }
+.photo img, .edition .ph img, .news .ph img, .pair img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.edition .ph, .news .ph { padding: 0; overflow: hidden; }
+.pair { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.pair img { aspect-ratio: 3 / 2; border: 1px solid var(--ink); height: auto; }
+@media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
 </style>
@@ -291,6 +299,7 @@ body { margin: 0; }
   <section id="khong-gian" class="wrap section stack center">
     <p class="script">Không gian</p>
     <p class="sub" style="margin-bottom: 24px">Đi một vòng, mang về một thứ do chính tay bạn viết</p>
+    <div class="pair"><img src="img/vps-2026-van-mieu-1.jpg" alt="Khách tham dự viết thư pháp tại Văn Miếu Quốc Tử Giám" width="1600" height="898" loading="lazy"><img src="img/vps-2026-van-mieu-2.jpg" alt="Thương hiệu và khách mời tại Văn Miếu Quốc Tử Giám" width="1600" height="1066" loading="lazy"></div>
     <div class="cells c5">
       <article><span class="num">I</span><h3>Di sản của nét viết</h3><p>Lịch sử bút từ Nhật, Âu Mỹ, Trung Quốc đến Việt Nam.</p></article>
       <article><span class="num">II</span><h3>Cây bút hôm nay</h3><p>Pilot, Sailor, Cánh Diều, Con Cò Pen và nhiều thương hiệu khác.</p></article>
