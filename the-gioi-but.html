@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thế giới bút máy · Vietnam Pen Show</title>
+<meta name="description" content="Kho kiến thức về bút máy của Vietnam Pen Show: nhập môn, lịch sử, cấu tạo, ngòi, hệ thống bơm mực, mực, giấy, vật liệu, chăm sóc và sửa chữa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Ballet:opsz@16..72&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a printed invitation on white paper. Centered serif titles, Ballet script as section names, thin ink rules, red only for the current season. */
+:root {
+  --paper: #FFFFFF;
+  --paper-2: #FAF8F4;
+  --tint: #EFEBE4;
+  --ink: #231815;
+  --muted: #5E5650;
+  --rule-soft: #D8D2C8;
+  --on-ink: #FFFFFF;
+  --on-ink-muted: #D8D2C8;
+  --red: #A8141C;
+  --f-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --f-script: 'Ballet', 'Playfair Display', Georgia, cursive;
+  --f-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter-l: max(24px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(24px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6; font-weight: 400;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: var(--ink); }
+a:hover { color: var(--red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
+img { max-width: 100%; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.wrap.narrow { max-width: 920px; }
+.section { padding-block: 96px; }
+.band { background: var(--paper-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.band + .band { border-top: 0; }
+.stack { display: flex; flex-direction: column; gap: 24px; }
+.center { align-items: center; text-align: center; }
+
+.script { font-family: var(--f-script); font-weight: 400; font-size: clamp(48px, 7vw, 68px); line-height: 1.25; }
+.display { font-family: var(--f-display); font-weight: 400; }
+.lede { font-family: var(--f-display); font-weight: 400; font-size: clamp(24px, 3.2vw, 38px); line-height: 1.3; max-width: 820px; }
+.sub { font-family: var(--f-display); font-style: italic; font-size: clamp(18px, 2.2vw, 22px); color: var(--muted); }
+.body-lg { font-size: 18px; font-weight: 300; color: var(--muted); max-width: 66ch; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.pillars { font-weight: 600; font-size: 13px; letter-spacing: 0.14em; }
+
+/* Ribbon + header */
+.ribbon { display: block; background: var(--ink); color: var(--on-ink); text-decoration: none; }
+.ribbon:hover { color: var(--on-ink); }
+.ribbon .wrap { padding-block: 11px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; font-size: 14px; text-align: center; }
+.ribbon b { letter-spacing: 0.08em; }
+.ribbon u { font-weight: 600; text-underline-offset: 3px; }
+
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--ink); }
+.site-header .wrap { padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-size: 20px; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; gap: 26px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.nav a { text-decoration: none; padding-block: 12px; white-space: nowrap; }
+.header-end { display: flex; align-items: center; gap: 16px; }
+.lang { font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.lang b { color: var(--ink); }
+.lang a { color: var(--muted); text-decoration: none; display: inline-block; padding: 12px 4px; }
+.lang a:hover { color: var(--red); }
+@media (max-width: 900px) {
+  .site-header .wrap { padding-bottom: 0; }
+  .nav { order: 3; flex: 1 0 100%; overflow-x: auto; gap: 22px; border-top: 1px solid var(--rule-soft); scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+}
+
+/* Buttons */
+.btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 16px 30px;
+  font: inherit; font-weight: 600; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: 1.5px solid var(--ink); background: var(--ink); color: var(--on-ink); cursor: pointer;
+}
+.btn:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.btn.sm { min-height: 44px; padding: 10px 18px; font-size: 13px; }
+.btn.light { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn.light:hover { background: var(--red); border-color: var(--red); color: var(--on-ink); }
+
+/* Hero */
+.hero { padding-block: 88px 72px; }
+.hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 8.4vw, 108px); line-height: 1; letter-spacing: 0.01em; }
+.hero .tagline { font-weight: 700; font-size: clamp(15px, 2vw, 22px); letter-spacing: 0.04em; }
+.hero .script { font-size: clamp(40px, 6vw, 72px); line-height: 1.15; }
+.photo {
+  aspect-ratio: 21 / 9; max-width: 100%; background: var(--tint); border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center; color: var(--muted); font-size: 14px;
+}
+
+/* Bordered cell grid */
+.cells { width: 100%; display: grid; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); text-align: left; }
+.cells > * { border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 32px 26px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.cells .num { font-family: var(--f-display); font-style: italic; font-size: 38px; line-height: 1; }
+.cells h3 { font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.4; }
+.cells p { font-size: 15px; font-weight: 300; color: var(--muted); }
+.cells.c3 { grid-template-columns: repeat(3, 1fr); }
+.cells.c5 { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1000px) { .cells.c5 { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 820px) { .cells.c3, .cells.c5 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .cells.c3, .cells.c5 { grid-template-columns: 1fr; } }
+
+/* Editions */
+.editions { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; text-align: left; }
+.edition { border: 1px solid var(--ink); background: var(--paper); text-decoration: none; display: flex; flex-direction: column; }
+.edition.current { outline: 2px solid var(--red); outline-offset: -2px; }
+.edition .ph { aspect-ratio: 4 / 3; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.edition .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 4px; }
+.edition .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.edition .year { font-family: var(--f-display); font-size: 32px; line-height: 1.1; }
+.edition .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.edition.current .tag { color: var(--red); }
+.edition .name { font-weight: 600; }
+.edition .meta { font-size: 14px; color: var(--muted); font-weight: 300; }
+
+.stats { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; }
+.stats .n { font-family: var(--f-display); font-size: 46px; line-height: 1.2; }
+.stats .l { font-size: 14px; color: var(--muted); }
+.rule-top { border-top: 1px solid var(--ink); padding-top: 40px; }
+
+/* Topics */
+.split { display: flex; flex-wrap: wrap; gap: 48px; }
+.split > :first-child { flex: 1 1 340px; min-width: 0; }
+.split > :last-child { flex: 999 1 520px; min-width: 0; }
+.topics { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 32px; border-top: 1px solid var(--ink); align-self: start; }
+@media (max-width: 560px) { .topics { grid-template-columns: 1fr; } }
+.topics a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 12px 2px; border-bottom: 1px solid var(--ink); text-decoration: none; font-size: 16px; }
+.topics i { font-family: var(--f-display); color: var(--muted); margin-right: 12px; }
+
+/* News */
+.news { width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; text-align: left; }
+.news a { background: var(--paper); border: 1px solid var(--ink); text-decoration: none; display: flex; flex-direction: column; }
+.news .ph { aspect-ratio: 16 / 9; background: var(--tint); display: flex; align-items: flex-end; padding: 12px; font-size: 12px; color: var(--muted); }
+.news .body { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.news .cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted); }
+.news .t { font-family: var(--f-display); font-size: 20px; line-height: 1.35; }
+
+.brands { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; max-width: 980px; }
+.brands span { font-family: var(--f-display); font-size: 21px; }
+
+/* Panels & forms */
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.panel { border: 1.5px solid var(--ink); background: var(--paper); padding: 40px; display: flex; flex-direction: column; gap: 16px; }
+.panel.dark { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.panel.dark p.txt { color: var(--on-ink-muted); }
+.panel .script { font-size: 52px; line-height: 1.2; }
+@media (max-width: 520px) { .panel { padding: 28px 22px; } }
+.field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; }
+.field input, .field select {
+  font: inherit; font-size: 16px; letter-spacing: 0; font-weight: 400; color: var(--ink);
+  padding: 12px; min-height: 48px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper);
+}
+.form-note { font-size: 14px; color: var(--muted); }
+.form-note[data-ok] { color: var(--ink); font-weight: 600; }
+
+footer { border-top: 1px solid var(--ink); }
+footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 14px; color: var(--muted); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer a { color: var(--muted); }
+
+/* Season page */
+.partners { display: flex; align-items: stretch; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.partner { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.partner .eyebrow { font-size: 10px; letter-spacing: 0.08em; }
+.partner img { height: 80px; width: auto; }
+.partner-rule { width: 1px; background: var(--ink); }
+@media (max-width: 520px) { .partner img { height: 64px; } }
+.when { border: 1.5px solid var(--ink); padding: 16px 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; font-size: clamp(16px, 2vw, 21px); }
+@media (max-width: 520px) { .when span[aria-hidden] { display: none; } }
+.countdown { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; margin-top: 8px; }
+.cd-units { display: flex; gap: 24px; }
+.cd-units > div { display: flex; flex-direction: column; align-items: center; min-width: 56px; }
+.cd-n { font-family: var(--f-display); font-size: 42px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.cd-l { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; }
+
+.day h3 { font-weight: 700; font-size: 18px; letter-spacing: 0.02em; }
+.day .q { font-family: var(--f-display); font-style: italic; font-size: 22px; margin: 4px 0 12px; }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.rows li { display: flex; flex-wrap: wrap; gap: 2px 40px; padding: 14px 0; border-bottom: 1px solid var(--rule-soft); }
+.rows time { flex: 0 0 160px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rows div { flex: 1 1 320px; min-width: 0; font-size: 17px; }
+.rows small { display: block; font-size: 15px; color: var(--muted); font-weight: 300; }
+
+.red-band { background: var(--red); color: var(--on-ink); }
+
+.history { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+@media (max-width: 640px) { .history { grid-template-columns: repeat(2, 1fr); } }
+.history a { padding: 22px 12px 4px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-decoration: none; text-align: center; }
+.history .display { font-size: 34px; }
+.history a > span:last-child { font-size: 14px; color: var(--muted); }
+
+.addr { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px; font-size: 18px; }
+.addr div { display: flex; flex-direction: column; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; border-top: 1px solid var(--ink); padding-top: 24px; }
+.facts div { display: flex; flex-direction: column; gap: 2px; }
+.map {
+  aspect-ratio: 16 / 7; max-width: 100%; border: 1.5px solid var(--ink); text-decoration: none; padding: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 39px, var(--rule-soft) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, var(--rule-soft) 39px 40px), var(--paper);
+}
+.map .display { background: var(--paper); padding: 2px 10px; }
+.map .eyebrow { background: var(--paper); padding: 2px 10px; }
+.faq details { border-bottom: 1px solid var(--rule-soft); }
+.faq summary { cursor: pointer; font-weight: 600; padding: 16px 0; min-height: 44px; }
+.faq details p { color: var(--muted); font-size: 15px; font-weight: 300; padding-bottom: 16px; }
+
+/* Photos */
+.photo { padding: 0; overflow: hidden; }
+.photo img, .edition .ph img, .news .ph img, .pair img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.edition .ph, .news .ph { padding: 0; overflow: hidden; }
+.pair { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+.pair img { aspect-ratio: 3 / 2; border: 1px solid var(--ink); height: auto; }
+@media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+
+/* Hero slideshow */
+.slideshow { position: relative; }
+.slideshow .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1s ease; }
+.slideshow .slide.on { opacity: 1; }
+.slideshow .ss-nav { position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; align-items: center; gap: 6px; }
+.slideshow .ss-dot { width: 28px; height: 28px; padding: 0; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
+.slideshow .ss-dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 0 1px rgba(35,24,21,.35); transition: background .2s, transform .2s; }
+.slideshow .ss-dot[aria-current="true"]::before { background: #fff; transform: scale(1.3); }
+.slideshow .ss-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 1px solid var(--ink); background: rgba(255,255,255,.85); color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .2s; }
+.slideshow .ss-prev { left: 12px; } .slideshow .ss-next { right: 12px; }
+.slideshow:hover .ss-arrow, .slideshow .ss-arrow:focus-visible { opacity: 1; }
+@media (hover: none) { .slideshow .ss-arrow { opacity: 1; } }
+@media (max-width: 520px) { .slideshow .ss-arrow { display: none; } }
+@media (prefers-reduced-motion: reduce) { .slideshow .slide { transition: none; } }
+
+/* Partner form (inside the dark panel) */
+.duo { align-items: start; }
+.partner-form { display: flex; flex-direction: column; gap: 16px; padding-top: 8px; }
+.panel.dark .field, .panel.dark legend { color: var(--on-ink); }
+.panel.dark .form-note { color: var(--on-ink-muted); }
+.panel.dark .form-note[data-ok] { color: var(--on-ink); }
+.field textarea { font: inherit; font-size: 16px; letter-spacing: 0; font-weight: 400; color: var(--ink); padding: 12px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); resize: vertical; }
+.field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.checks { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 4px 16px; }
+.checks legend { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; padding: 0; margin-bottom: 8px; }
+.check { display: flex; align-items: center; gap: 10px; min-height: 40px; font-size: 15px; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--red); flex: none; }
+.checks.invalid legend::after { content: " · " attr(data-msg); color: #FFB4B4; letter-spacing: 0; text-transform: none; }
+
+.toggle-head { margin: 8px 0 0; }
+.toggle-head button {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font: inherit; font-family: var(--f-display); font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.25; text-align: left;
+  color: var(--on-ink); background: none; border: 0; border-top: 1px solid var(--on-ink-muted); border-bottom: 1px solid var(--on-ink-muted);
+  padding: 16px 0; min-height: 56px; cursor: pointer;
+}
+.toggle-head button:hover { color: var(--on-ink-muted); }
+.toggle-head button:focus-visible { outline-color: var(--on-ink); }
+.toggle-icon { position: relative; width: 18px; height: 18px; flex: none; }
+.toggle-icon::before, .toggle-icon::after { content: ""; position: absolute; left: 0; top: 8px; width: 18px; height: 1.5px; background: currentColor; transition: transform .2s ease; }
+.toggle-icon::after { transform: rotate(90deg); }
+.toggle-head button[aria-expanded="true"] .toggle-icon::after { transform: rotate(0deg); }
+@media (prefers-reduced-motion: reduce) { .toggle-icon::before, .toggle-icon::after { transition: none; } }
+
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+
+/* Knowledge page */
+.kb-hero { padding-block: 72px 56px; }
+.kb-toc { margin-top: 8px; }
+.chapter { padding-block: 80px; border-top: 1px solid var(--ink); scroll-margin-top: 80px; }
+.chapter-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.chapter-head .num { font-family: var(--f-display); font-style: italic; font-size: 44px; line-height: 1; color: var(--muted); }
+.chapter-head h2 { font-family: var(--f-display); font-weight: 400; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.15; }
+.chapter-head .lead { font-family: var(--f-display); font-size: clamp(19px, 2.2vw, 24px); line-height: 1.45; max-width: 760px; }
+.figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 0 0 40px; }
+.figs figure { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.figs img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--ink); background: var(--tint); }
+.figs.wide img { aspect-ratio: 3 / 2; }
+.figs figcaption { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.prose { max-width: 820px; display: flex; flex-direction: column; gap: 18px; font-size: 17px; }
+.prose h3 { font-weight: 700; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 14px; }
+.prose p, .prose li { color: var(--ink); }
+.prose ul, .prose ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.prose .note { border-left: 2px solid var(--red); padding: 4px 0 4px 18px; font-family: var(--f-display); font-size: 19px; }
+.table-wrap { width: 100%; overflow-x: auto; border-top: 1px solid var(--ink); }
+.prose table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.prose th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 12px 10px 0; border-bottom: 1px solid var(--ink); vertical-align: bottom; }
+.prose td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; font-weight: 300; }
+.prose td:first-child { font-weight: 600; min-width: 8.5em; }
+.prose table.wide { min-width: 760px; }
+.prose .timeline td:first-child { font-family: var(--f-display); font-weight: 400; font-size: 18px; }
+.back-top { display: inline-block; margin-top: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+.credits { font-size: 14px; color: var(--muted); }
+.credits ul { padding-left: 20px; margin: 8px 0 0; display: flex; flex-direction: column; gap: 4px; }
+</style>
+</head>
+<body>
+<a class="ribbon" href="2026.html">
+  <span class="wrap">
+    <b>MÙA 2026</b>
+    <span>950 năm Văn Miếu, Quốc Tử Giám · 05 đến 06.12 tại Hà Nội</span>
+    <u>Xem chương trình →</u>
+  </span>
+</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">VIETNAM PEN SHOW</a>
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="index.html#su-menh">Về chúng tôi</a>
+      <a href="index.html#cac-mua">Các mùa</a>
+      <a href="the-gioi-but.html" aria-current="page">Thế giới bút</a>
+      <a href="index.html#cong-dong">Cộng đồng</a>
+      <a href="index.html#doi-tac">Đối tác</a>
+    </nav>
+    <div class="header-end">
+      <a class="btn sm" href="2026.html">Mùa 2026</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="top" class="wrap kb-hero split">
+    <div class="stack" style="gap: 20px">
+      <p class="script">Thế giới bút máy</p>
+      <p class="display" style="font-size: 26px; line-height: 1.35">Một thế giới bắt đầu từ một nét mực...</p>
+      <p class="body-lg" style="font-size: 17px">Phía sau một cây bút máy là cả lịch sử, kỹ thuật, nghệ thuật và những câu chuyện con người. Kho kiến thức dành cho cả người mới bắt đầu lẫn nhà sưu tầm.</p>
+    </div>
+    <nav class="topics kb-toc" aria-label="Mục lục">
+      <a href="#nhap-mon"><span><i>01</i>Nhập môn bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#lich-su"><span><i>02</i>Lịch sử bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#cau-tao"><span><i>03</i>Cấu tạo bút máy</span><span aria-hidden="true">→</span></a>
+      <a href="#ngoi-but"><span><i>04</i>Thế giới ngòi bút</span><span aria-hidden="true">→</span></a>
+      <a href="#bom-muc"><span><i>05</i>Hệ thống bơm mực</span><span aria-hidden="true">→</span></a>
+      <a href="#muc"><span><i>06</i>Mực</span><span aria-hidden="true">→</span></a>
+      <a href="#giay"><span><i>07</i>Giấy và vật liệu viết</span><span aria-hidden="true">→</span></a>
+      <a href="#vat-lieu"><span><i>08</i>Vật liệu và chế tác</span><span aria-hidden="true">→</span></a>
+      <a href="#cham-soc"><span><i>09</i>Sử dụng và chăm sóc</span><span aria-hidden="true">→</span></a>
+      <a href="#sua-chua"><span><i>10</i>Sửa chữa và phục chế</span><span aria-hidden="true">→</span></a>
+    </nav>
+  </section>
+
+  <!-- 01 -->
+  <section id="nhap-mon" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">01</span>
+      <h2>Nhập môn bút máy</h2>
+      <p class="lead">Bút máy là cây bút tự mang mực bên trong và dẫn mực xuống ngòi nhờ lực mao dẫn. Chỉ cần đặt ngòi lên giấy, không phải ấn mạnh, nét mực tự chảy.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/01-viet-chu.jpg" alt="Bút máy viết chữ nghiêng trên giấy" loading="lazy"><figcaption>Ảnh: Seymasungr / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/01-cam-but.jpg" alt="Bàn tay cầm bút máy viết trên giấy trắng" loading="lazy"><figcaption>Ảnh: Janson A / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3>Bút máy khác gì bút bi?</h3>
+      <p>Bút bi dùng viên bi lăn và mực dầu đặc, cần lực ấn. Bút máy dùng mực gốc nước loãng, chảy qua rãnh dẫn mực và khe ngòi xuống giấy. Vì thế tay viết nhẹ hơn, nét chữ có thể thanh đậm, và một cây bút tốt có thể dùng hàng chục năm.</p>
+      <h3>Vì sao người ta vẫn chọn bút máy hôm nay?</h3>
+      <ul>
+        <li>Viết nhẹ tay, ít mỏi khi viết lâu.</li>
+        <li>Bền và bơm lại được, ít rác nhựa hơn bút dùng một lần.</li>
+        <li>Hàng trăm màu mực để chọn, có thể tự pha.</li>
+        <li>Mỗi cây bút, mỗi ngòi cho một nét riêng; nét chữ trở thành dấu ấn cá nhân.</li>
+        <li>Gắn với ký ức: với nhiều thế hệ người Việt, cây bút máy là đồ dùng học trò quen thuộc trên lớp.</li>
+      </ul>
+      <h3>Chọn cây bút đầu tiên</h3>
+      <ol>
+        <li>Chọn ngòi thép cỡ F (nhỏ) hoặc M (trung bình); ngòi vàng chưa cần thiết khi mới bắt đầu.</li>
+        <li>Ưu tiên bút dùng ống mực (cartridge) kèm bộ bơm mực (converter) để thử cả mực ống lẫn mực lọ.</li>
+        <li>Dùng mực gốc thuốc nhuộm (dye-based) thông dụng, dễ rửa.</li>
+        <li>Viết trên giấy định lượng từ 80 gsm trở lên để hạn chế nhòe và thấm.</li>
+        <li>Cầm bút nhẹ, nghiêng khoảng 40 đến 55 độ, mặt ngòi hướng lên, không ấn mạnh.</li>
+      </ol>
+      <h3>Thuật ngữ nhanh</h3>
+      <p>Ngòi (nib), rãnh dẫn mực (feed), thân bút (barrel), nắp (cap), ống mực (cartridge), bộ bơm (converter), cỡ ngòi EF, F, M, B.</p>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 02 -->
+  <section id="lich-su" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">02</span>
+      <h2>Lịch sử bút máy</h2>
+      <p class="lead">Từ cây bút lông ngỗng phải chấm mực liên tục đến cây bút tự chứa mực, hành trình kéo dài gần 300 năm, qua tay các nhà phát minh Đức, Anh, Romania, Mỹ, Nhật và cả những xưởng bút Việt Nam.</p>
+    </div>
+    <div class="figs wide">
+      <figure><img src="img/the-gioi-but/02-but-long-ngong.jpg" alt="Bút lông ngỗng chấm mực dưới ánh nến" loading="lazy"><figcaption>Ảnh: Cottonbro / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/02-but-co.jpg" alt="Bút máy cổ và ngòi chấm mực trên bàn" loading="lazy"><figcaption>Ảnh: Sebastian Luna / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3>Những mốc chính trên thế giới</h3>
+      <div class="table-wrap"><table class="timeline">
+        <thead><tr><th>Năm</th><th>Sự kiện</th></tr></thead>
+        <tbody>
+          <tr><td>1636</td><td>Daniel Schwenter (Đức) mô tả ý tưởng bút chứa mực ghép từ hai ống lông.</td></tr>
+          <tr><td>1809</td><td>Frederick Fölsch nhận bằng sáng chế bút máy đầu tiên ở Anh.</td></tr>
+          <tr><td>1819</td><td>Bút "Penographic" của John Scheffer là mẫu đầu tiên bán được trên thị trường.</td></tr>
+          <tr><td>25.05.1827</td><td>Petrache Poenaru (Romania) nhận bằng sáng chế Pháp cho cây bút có thân làm từ ống lông thiên nga.</td></tr>
+          <tr><td>1832</td><td>John Jacob Parker (Anh) đăng ký bút tự nạp mực bằng piston vặn ren.</td></tr>
+          <tr><td>1884</td><td>Lewis E. Waterman (Mỹ) được cấp bằng cho rãnh dẫn mực nhiều kênh, giúp mực chảy đều, nền tảng của bút máy hiện đại.</td></tr>
+          <tr><td>1912</td><td>Walter A. Sheaffer tung ra bút bơm bằng cần gạt (lever filler), mở đầu thời bút tự nạp mực.</td></tr>
+          <tr><td>1925</td><td>Namiki (Pilot) đưa nghệ thuật sơn mài maki-e Nhật Bản lên thân bút.</td></tr>
+          <tr><td>1929</td><td>Pelikan (Đức) ra mắt bút piston vặn hiện đại đầu tiên.</td></tr>
+          <tr><td>1940 đến 1950</td><td>Thời hoàng kim với Parker 51, Aurora 88, Sheaffer Snorkel.</td></tr>
+          <tr><td>Từ 1960</td><td>Bút bi chiếm ưu thế trong viết hằng ngày; bút máy chuyển dần sang ống mực và trở thành đồ chơi chữ, đồ sưu tầm.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Bút máy ở Việt Nam</h3>
+      <ul>
+        <li>Đầu thế kỷ XX: bút máy theo chân người Pháp vào Việt Nam, dần thay thế bút lông và ngòi chấm mực.</li>
+        <li>Hơn một thế kỷ sau đó, cây bút máy là vật dụng quý, có khi được giữ như một tài sản trong gia đình.</li>
+        <li>01.10.1959: nhà máy văn phòng phẩm đầu tiên của Việt Nam, Hồng Hà, được khánh thành, sản xuất bút máy, bút chì, mực theo dây chuyền.</li>
+        <li>Những năm 1970: bút Trung Quốc như Kim Tinh, Anh Hùng phổ biến trong học sinh; có lớp còn khắc tên lên bút làm quà chia tay.</li>
+        <li>Phong trào "Vở sạch chữ đẹp" giữ cho bút máy gắn với lớp học Việt Nam đến tận hôm nay.</li>
+        <li>2015: Mini Pen Show Hà Nội đầu tiên, tiền thân của Vietnam Pen Show.</li>
+      </ul>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 03 -->
+  <section id="cau-tao" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">03</span>
+      <h2>Cấu tạo bút máy</h2>
+      <p class="lead">Một cây bút máy chỉ có vài bộ phận chính, nhưng mỗi bộ phận phối hợp chính xác để mực xuống đều, không nghẹt và không chảy tràn. Trái tim là ngòi và rãnh dẫn mực.</p>
+    </div>
+    <div class="figs wide">
+      <figure><img src="img/the-gioi-but/03-dau-but.jpg" alt="Cận cảnh đầu bút máy trên nền trắng" loading="lazy"><figcaption>Ảnh: Sahil Kharbanda / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/03-than-ngoi.jpg" alt="Thân và ngòi bút máy màu vàng bạc" loading="lazy"><figcaption>Ảnh: Pixabay / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Bộ phận</th><th>Tên tiếng Anh</th><th>Vai trò</th></tr></thead>
+        <tbody>
+          <tr><td>Ngòi</td><td>Nib</td><td>Đưa mực xuống giấy; quyết định độ to nhỏ và cảm giác của nét.</td></tr>
+          <tr><td>Rãnh dẫn mực</td><td>Feed</td><td>Dẫn mực từ ống chứa xuống ngòi, đồng thời cho không khí đi ngược lên để cân bằng áp suất.</td></tr>
+          <tr><td>Cổ bút</td><td>Section / Grip</td><td>Chỗ cầm bút, giữ ngòi và rãnh dẫn mực.</td></tr>
+          <tr><td>Ống chứa mực</td><td>Reservoir</td><td>Ống mực, bộ bơm hoặc chính thân bút.</td></tr>
+          <tr><td>Cơ chế bơm</td><td>Filling system</td><td>Cách đưa mực vào bút (xem mục 05).</td></tr>
+          <tr><td>Thân bút</td><td>Barrel</td><td>Bảo vệ ống mực, quyết định trọng lượng và độ cân bằng.</td></tr>
+          <tr><td>Nắp bút</td><td>Cap</td><td>Bịt kín ngòi để mực không khô; nắp trong (inner cap) giúp giữ ẩm.</td></tr>
+          <tr><td>Kẹp</td><td>Clip</td><td>Giữ bút trong túi áo, thường mang dấu hiệu thương hiệu.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Bút máy hoạt động thế nào?</h3>
+      <p>Mực đi theo các rãnh nhỏ nhờ lực mao dẫn, giống nước thấm lên khăn giấy. Mỗi giọt mực đi xuống, một bọt khí nhỏ đi ngược lên ống chứa. Rãnh dẫn mực của Waterman năm 1884 chính là lời giải cho bài toán cân bằng mực và khí này, giúp bút hết cảnh nhỏ giọt hay nghẹt mực.</p>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 04 -->
+  <section id="ngoi-but" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">04</span>
+      <h2>Thế giới ngòi bút</h2>
+      <p class="lead">Ngòi là trái tim của cây bút máy. Chất liệu, cỡ và kiểu mài của ngòi quyết định nét chữ bạn để lại trên trang giấy.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/04-ngoi-den-trang.jpg" alt="Cận cảnh ngòi bút máy, ảnh đen trắng" loading="lazy"><figcaption>Ảnh: Pacific / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/04-ngoi-co.jpg" alt="Ngòi bút cổ có hoa văn kim loại" loading="lazy"><figcaption>Ảnh: Kristina Ohrband / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/04-ngoi-vang.jpg" alt="Ngòi vàng trên trang thư pháp" loading="lazy"><figcaption>Ảnh: Pixabay / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3>Chất liệu ngòi</h3>
+      <ul>
+        <li><b>Thép không gỉ:</b> bền, cứng, giá dễ chịu; lựa chọn tốt cho người mới.</li>
+        <li><b>Vàng 14K, 18K, 21K:</b> mềm và đàn hồi hơn, chống ăn mòn tốt; khắc ký hiệu tuổi vàng như "14K 585" hoặc "18K 750".</li>
+        <li><b>Mạ vàng:</b> ngòi thép phủ một lớp vàng mỏng, chủ yếu để đẹp, không đổi cảm giác viết.</li>
+        <li><b>Đầu ngòi (tipping):</b> viên kim loại siêu cứng hàn ở mũi ngòi, quen gọi là "iridium", ngày nay thường là hợp kim osmium hoặc ruthenium. Độ mịn khi viết phụ thuộc vào đầu ngòi được mài và chỉnh tốt, không chỉ vào thân ngòi là vàng hay thép.</li>
+      </ul>
+      <h3>Cỡ ngòi phổ biến</h3>
+      <div class="table-wrap"><table class="wide">
+        <thead><tr><th>Ký hiệu</th><th>Tên</th><th>Nét (tham khảo)</th><th>Phù hợp</th></tr></thead>
+        <tbody>
+          <tr><td>EF</td><td>Extra Fine</td><td>rất mảnh</td><td>chữ nhỏ, chữ Hán, giấy mỏng</td></tr>
+          <tr><td>F</td><td>Fine</td><td>khoảng 0,35 đến 0,6 mm</td><td>viết hằng ngày, ghi chép</td></tr>
+          <tr><td>M</td><td>Medium</td><td>khoảng 0,65 đến 0,8 mm</td><td>người mới, đa dụng</td></tr>
+          <tr><td>B</td><td>Broad</td><td>khoảng 0,8 đến 1 mm</td><td>chữ to, ký tên</td></tr>
+          <tr><td>BB</td><td>Double Broad</td><td>khoảng 1 mm trở lên</td><td>ký tên, ngắm mực</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Ngòi Nhật thường nét mảnh hơn ngòi phương Tây cùng ký hiệu: cỡ M Nhật gần bằng F của châu Âu. Mỗi hãng một khác, nên thử trước khi chọn.</p>
+      <h3>Kiểu ngòi đặc biệt</h3>
+      <ul>
+        <li><b>Stub, Italic:</b> đầu dẹt, tạo nét ngang mảnh, nét dọc đậm; hợp viết calligraphy và chữ Việt có dấu.</li>
+        <li><b>Oblique (OM, OB):</b> mài xiên cho người cầm bút xoay.</li>
+        <li><b>Flex, soft:</b> ngòi đàn hồi, nét to ra khi ấn; phong cách các ngòi Waterman đầu thế kỷ XX.</li>
+        <li><b>Ngòi cong (fude):</b> ngòi gập cong kiểu Nhật, nét thay đổi theo góc cầm, gần với bút lông.</li>
+        <li><b>Ngòi chuyên dụng cho thư pháp:</b> bản rộng 1,1 mm, 1,5 mm và lớn hơn.</li>
+      </ul>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 05 -->
+  <section id="bom-muc" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">05</span>
+      <h2>Hệ thống bơm mực</h2>
+      <p class="lead">Mực vào bút bằng cách nào? Từ ống nhỏ giọt thời sơ khai đến piston, cần gạt hay ống mực thay nhanh, mỗi cơ chế là một lời giải kỹ thuật riêng và một phần lịch sử của các hãng bút.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/05-nhung-muc.jpg" alt="Nhúng ngòi bút máy vào lọ mực" loading="lazy"><figcaption>Ảnh: Katya Wolf / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/05-lo-muc.jpg" alt="Bút máy đặt cạnh lọ mực" loading="lazy"><figcaption>Ảnh: Iago Gleison / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <div class="table-wrap"><table class="wide">
+        <thead><tr><th>Cơ chế</th><th>Cách hoạt động</th><th>Ưu điểm</th><th>Lưu ý</th><th>Thời kỳ / ví dụ</th></tr></thead>
+        <tbody>
+          <tr><td>Ống mực (cartridge)</td><td>Ống nhựa đầy mực cắm vào cổ bút</td><td>Tiện, sạch, dễ mang theo</td><td>Ít mực, rác nhựa, màu hạn chế</td><td>Phổ biến nhất từ sau 1960</td></tr>
+          <tr><td>Bộ bơm (converter)</td><td>Ống piston nhỏ thay chỗ ống mực, hút mực từ lọ</td><td>Dùng được mực lọ cho bút dùng ống</td><td>Dung tích nhỏ</td><td>Đi kèm đa số bút hiện nay</td></tr>
+          <tr><td>Piston</td><td>Vặn núm cuối thân, piston hút mực vào cả thân bút</td><td>Chứa nhiều mực</td><td>Phải hút từ lọ</td><td>Pelikan 1929, Montblanc 149</td></tr>
+          <tr><td>Ống nhỏ giọt (eyedropper)</td><td>Bơm thẳng mực vào thân bút bằng ống nhỏ giọt</td><td>Dung tích rất lớn, đơn giản</td><td>Dễ "ợ" mực khi gần hết hoặc khi nhiệt độ thay đổi</td><td>Kiểu bút đầu tiên, vẫn được dùng</td></tr>
+          <tr><td>Cần gạt (lever filler)</td><td>Kéo cần gạt ép túi cao su, thả ra để hút mực</td><td>Bơm nhanh, bền</td><td>Túi cao su lão hóa, cần thay</td><td>Sheaffer 1912, phổ biến nhất thời vintage</td></tr>
+          <tr><td>Nút bấm (button filler)</td><td>Bấm nút ở đuôi thân để ép túi mực</td><td>Thân bút gọn, liền mạch</td><td>Túi cao su cần thay</td><td>Parker Duofold</td></tr>
+          <tr><td>Hút chân không (vacuum)</td><td>Đẩy cần hoặc nút để tạo chân không hút mực</td><td>Dung tích lớn</td><td>Gioăng cần bảo dưỡng</td><td>Parker Vacumatic, Pilot Custom 823</td></tr>
+          <tr><td>Snorkel</td><td>Ống hút nhỏ thò ra, ngòi không cần nhúng mực</td><td>Không dính mực vào ngòi</td><td>Cơ chế phức tạp</td><td>Sheaffer thập niên 1950</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note">Gợi ý cho người mới: bút ống mực kèm converter là lựa chọn linh hoạt nhất. Khi đã quen mực lọ, hãy thử bút piston để có nhiều mực hơn.</p>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 06 -->
+  <section id="muc" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">06</span>
+      <h2>Mực</h2>
+      <p class="lead">Mực bút máy là mực gốc nước, loãng và được pha riêng để chảy qua những rãnh rất nhỏ. Hàng trăm màu, hiệu ứng ánh kim, lấp lánh, đổi sắc: chọn mực cũng là một niềm vui.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/06-lo-muc-mau.jpg" alt="Các lọ mực nhiều màu và bút máy" loading="lazy"><figcaption>Ảnh: Sharyn Chew / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/06-hai-lo-muc.jpg" alt="Hai lọ mực và một cây bút trên bàn" loading="lazy"><figcaption>Ảnh: Suhashanjar / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/06-muc-loang.jpg" alt="Mực xanh loang cạnh bút máy" loading="lazy"><figcaption>Ảnh: David Pennington / Unsplash</figcaption></figure>
+    </div>
+    <div class="prose">
+      <div class="table-wrap"><table class="wide">
+        <thead><tr><th>Loại mực</th><th>Thành phần</th><th>Ưu điểm</th><th>Lưu ý</th></tr></thead>
+        <tbody>
+          <tr><td>Gốc thuốc nhuộm (dye-based)</td><td>Thuốc nhuộm tan hoàn toàn trong nước</td><td>Nhiều màu nhất, dễ rửa, an toàn cho bút</td><td>Kém chịu nước, dễ phai dưới nắng</td></tr>
+          <tr><td>Gốc bột màu (pigment)</td><td>Hạt màu siêu mịn lơ lửng trong nước</td><td>Chống nước, bền màu, hợp lưu trữ giấy tờ</td><td>Dễ nghẹt nếu để khô; rửa bút thường xuyên</td></tr>
+          <tr><td>Mực sắt (iron gall)</td><td>Sắt sunfat phản ứng với axit tannic từ mụn sồi</td><td>Đậm dần sau khi viết, rất bền với thời gian</td><td>Có tính axit; chỉ dùng cho bút viết thường xuyên</td></tr>
+          <tr><td>Mực nhũ (shimmer)</td><td>Mực nhuộm có thêm hạt nhũ kim loại</td><td>Lấp lánh trên giấy tốt</td><td>Hợp ngòi to; lắc đều, rửa bút kỹ</td></tr>
+          <tr><td>Ánh kim (sheen), đổi sắc (shading)</td><td>Mực đậm đặc thuốc nhuộm</td><td>Ánh đỏ, ánh xanh ở mép nét; nét đậm nhạt</td><td>Khô chậm hơn</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Điều nên biết</h3>
+      <ul>
+        <li>Mực sắt có lịch sử hàng thế kỷ: nhiều bản thảo của Leonardo da Vinci được viết bằng loại mực này.</li>
+        <li>Không dùng mực tàu, mực thư pháp hay mực bút chấm cho bút máy: chất keo (như gôm arabic) sẽ làm nghẹt rãnh dẫn mực.</li>
+        <li>Khi đổi loại mực, rửa bút bằng nước sạch trước để tránh mực kết tủa.</li>
+        <li>Thử mực trên giấy tốt để thấy rõ ánh kim và đổi sắc.</li>
+      </ul>
+      <p class="note">Tại Vietnam Pen Show, khách tham quan có thể tự pha màu mực ở góc Pha mực và cá nhân hóa, hoặc tham gia các workshop pha mực của thương hiệu đồng hành (Sailor đã tổ chức Ink Blending năm 2025).</p>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 07 -->
+  <section id="giay" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">07</span>
+      <h2>Giấy và vật liệu viết</h2>
+      <p class="lead">Cùng một cây bút, cùng một lọ mực, nhưng trên mỗi loại giấy nét chữ lại khác. Giấy tốt giữ nét sắc, không lem, không thấm sang mặt sau và làm hiện rõ màu mực.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/07-so-ke-dong.jpg" alt="Cây bút đặt trên trang sổ kẻ dòng" loading="lazy"><figcaption>Ảnh: Budget Bizar / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/07-giay-o.jpg" alt="Trang nhật ký viết mực nâu trên giấy ô" loading="lazy"><figcaption>Ảnh: Katya Wolf / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/07-giay-van.jpg" alt="Thư pháp mực đen trên giấy có vân" loading="lazy"><figcaption>Ảnh: Katya Wolf / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3>Những lỗi thường gặp trên giấy kém</h3>
+      <ul>
+        <li><b>Nhòe sợi (feathering):</b> mực loang theo sớ giấy, nét bị tưa.</li>
+        <li><b>Thấm mặt sau (bleed-through):</b> mực xuyên sang trang sau.</li>
+        <li><b>Hằn bóng (ghosting):</b> nhìn thấy chữ từ mặt sau dù mực không thấm qua.</li>
+      </ul>
+      <h3>Chọn giấy cho bút máy</h3>
+      <ul>
+        <li>Độ dày (định lượng, gsm) không phải tất cả: lớp phủ bề mặt (sizing) mới quyết định giấy có "ăn" mực hay không. Có giấy mỏng 52 gsm vẫn viết bút máy rất đẹp, có giấy 100 gsm vẫn nhòe.</li>
+        <li>Người mới có thể bắt đầu với giấy từ 80 gsm có bề mặt láng.</li>
+        <li>Giấy láng giúp hiện ánh kim (sheen) và đổi sắc (shading) rõ hơn; giấy xốp hút mực nhanh, khô nhanh nhưng nét to ra.</li>
+        <li>Các kiểu dòng kẻ: kẻ ngang, ô vuông, chấm (dot grid), trơn; vở ô ly là đặc trưng của lớp học Việt Nam.</li>
+      </ul>
+      <h3>Vật liệu viết truyền thống của người Việt</h3>
+      <ul>
+        <li><b>Giấy dó:</b> làm từ vỏ cây dó, gắn với các làng nghề như Yên Thái (Hà Nội), Đống Cao (Bắc Ninh); dùng cho thư pháp, tranh Đông Hồ.</li>
+        <li><b>Bút lông và mực tàu:</b> công cụ của chữ Hán Nôm trước khi bút máy đến.</li>
+      </ul>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 08 -->
+  <section id="vat-lieu" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">08</span>
+      <h2>Vật liệu và chế tác</h2>
+      <p class="lead">Thân bút có thể là cao su lưu hóa, celluloid, nhựa acrylic, kim loại hay gỗ, rồi được phủ sơn mài, khắc, vẽ tay. Mỗi chất liệu kể một câu chuyện về thời đại và tay nghề người thợ.</p>
+    </div>
+    <div class="figs">
+      <figure><img src="img/the-gioi-but/08-but-cam.jpg" alt="Bút máy màu cam trên nền cam" loading="lazy"><figcaption>Ảnh: Valentin Ivantsov / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/08-but-go.jpg" alt="Bút máy thân gỗ viền vàng" loading="lazy"><figcaption>Ảnh: Towfiqu Barbhuiya / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/08-but-ran.jpg" alt="Bút cổ đặt trên giá chạm hình rắn" loading="lazy"><figcaption>Ảnh: Coppertist Wu / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Chất liệu</th><th>Đặc điểm</th><th>Thời kỳ / ví dụ</th></tr></thead>
+        <tbody>
+          <tr><td>Ebonite (cao su lưu hóa)</td><td>Cao su trộn lưu huỳnh, ấm tay, dễ tiện, có thể phai màu theo thời gian</td><td>Vật liệu chính đầu thế kỷ XX; nay dùng cho bút thủ công</td></tr>
+          <tr><td>Celluloid</td><td>Nhựa sớm, vân xà cừ, vân đá sống động; hơi hút ẩm tay</td><td>Thời hoàng kim 1920 đến 1950; Visconti, Omas</td></tr>
+          <tr><td>Nhựa acrylic, resin</td><td>Đúc hoặc tiện, màu phong phú, bền, giá hợp lý</td><td>Phổ biến nhất hiện nay</td></tr>
+          <tr><td>Nhựa trong suốt (demonstrator)</td><td>Thấy được cơ chế và màu mực bên trong</td><td>Bút piston, eyedropper hiện đại</td></tr>
+          <tr><td>Kim loại</td><td>Đồng thau, nhôm, thép, bạc, titan: nặng, chắc, có thể khắc</td><td>Bút ký, bút công sở</td></tr>
+          <tr><td>Gỗ và vật liệu tự nhiên</td><td>Vân gỗ độc bản, cần dầu dưỡng</td><td>Bút thủ công</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Kỹ thuật trang trí</h3>
+      <ul>
+        <li><b>Urushi (sơn mài Nhật):</b> nhựa cây sơn quét nhiều lớp trong nhiều tháng, bền và chống ẩm.</li>
+        <li><b>Maki-e:</b> rắc bột vàng, bạc lên lớp sơn ướt để tạo hình. Namiki (Pilot) đưa maki-e lên bút máy từ năm 1925, cùng nghệ nhân Matsuda Gonroku. Các kiểu chính: hira maki-e (phẳng), taka maki-e (nổi), raden (khảm xà cừ).</li>
+        <li><b>Guilloché và khắc:</b> hoa văn khắc máy hoặc tay trên kim loại quý.</li>
+        <li><b>Vẽ tay, khắc tên, cá nhân hóa:</b> như nón lá và bút vẽ tay xuất hiện tại Vietnam Pen Show 2025.</li>
+      </ul>
+      <p class="note">Sơn mài Việt Nam có cùng gốc nhựa cây sơn với urushi Nhật Bản, một sợi dây nối giữa hai nền thủ công.</p>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 09 -->
+  <section id="cham-soc" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">09</span>
+      <h2>Sử dụng và chăm sóc</h2>
+      <p class="lead">Một cây bút máy được chăm sóc đúng cách có thể theo bạn cả đời, thậm chí truyền lại cho thế hệ sau. Bí quyết chủ yếu là nước sạch và thói quen đậy nắp.</p>
+    </div>
+    <div class="figs wide">
+      <figure><img src="img/the-gioi-but/09-la-thu.jpg" alt="Bút máy đặt trên lá thư viết tay" loading="lazy"><figcaption>Ảnh: Richardkhuptong / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/09-so-da.jpg" alt="Bút máy và sổ da trên bàn gỗ" loading="lazy"><figcaption>Ảnh: Coppertist Wu / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <h3>Cách viết đúng</h3>
+      <ul>
+        <li>Cầm nhẹ, không ấn mạnh: mực tự chảy.</li>
+        <li>Mặt ngòi hướng lên, hai nửa ngòi chạm giấy đều.</li>
+        <li>Không cho người khác mượn viết lâu: ngòi dần "quen" góc cầm của chủ.</li>
+      </ul>
+      <h3>Chăm sóc hằng ngày</h3>
+      <ol>
+        <li>Đậy nắp ngay khi ngừng viết để mực không khô ở ngòi.</li>
+        <li>Để bút nằm ngang hoặc ngòi hướng lên.</li>
+        <li>Bút không dùng trong vài tuần: rửa sạch và để khô trước khi cất.</li>
+        <li>Tránh để bút dưới nắng, trong xe ô tô nóng hay mang lên máy bay khi đầy mực (áp suất thay đổi dễ làm rỉ mực).</li>
+      </ol>
+      <h3>Rửa bút (khoảng mỗi 4 đến 6 tuần, hoặc mỗi lần đổi mực)</h3>
+      <ol>
+        <li>Tháo ống mực hoặc bơm hết mực ra.</li>
+        <li>Bơm nước sạch, ấm vừa phải (không dùng nước nóng), xả nhiều lần đến khi nước trong.</li>
+        <li>Mực khó rửa: dùng dung dịch rửa bút chuyên dụng hoặc nước pha vài giọt nước rửa chén loãng, rồi tráng lại bằng nước sạch.</li>
+        <li>Lau khô bằng khăn mềm, để ngòi hướng xuống trên khăn giấy cho nước rút hết.</li>
+      </ol>
+      <h3>Không nên</h3>
+      <ul>
+        <li>Không dùng cồn, axeton hay hóa chất mạnh: làm hỏng nhựa và celluloid.</li>
+        <li>Không ngâm bút kim loại, bút sơn mài trong nước quá lâu.</li>
+        <li>Không tự uốn, mài ngòi nếu chưa có kinh nghiệm: hãy mang đến Pen Clinic.</li>
+      </ul>
+    </div>
+    <a class="back-top" href="#top">↑ Mục lục</a>
+  </section>
+
+  <!-- 10 -->
+  <section id="sua-chua" class="wrap chapter">
+    <div class="chapter-head">
+      <span class="num">10</span>
+      <h2>Sửa chữa và phục chế</h2>
+      <p class="lead">Bút máy được làm để sửa được. Một cây bút cũ của ông bà, sau khi thay túi mực và chỉnh ngòi, có thể viết lại như xưa. Đó là tinh thần của Pen Clinic tại mỗi mùa Pen Show.</p>
+    </div>
+    <div class="figs wide">
+      <figure><img src="img/the-gioi-but/10-ngoi-muc.jpg" alt="Ngòi bút, bút và lọ mực trên bàn gỗ" loading="lazy"><figcaption>Ảnh: Alexey Demidov / Pexels</figcaption></figure>
+      <figure><img src="img/the-gioi-but/02-but-co.jpg" alt="Bộ sưu tập bút máy cổ" loading="lazy"><figcaption>Ảnh: Sebastian Luna / Pexels</figcaption></figure>
+    </div>
+    <div class="prose">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Triệu chứng</th><th>Nguyên nhân thường gặp</th><th>Cách xử lý</th></tr></thead>
+        <tbody>
+          <tr><td>Không ra mực, khó bắt đầu nét</td><td>Mực khô ở ngòi; rãnh dẫn mực nghẹt</td><td>Rửa bút; chạm ngòi vào giấy ẩm hoặc nước</td></tr>
+          <tr><td>Mực ra không đều, đứt nét</td><td>Khe ngòi quá hẹp; mực khô</td><td>Rửa bút; nhờ thợ chỉnh khe ngòi</td></tr>
+          <tr><td>Bút rỉ, "ợ" mực</td><td>Ống mực gần hết; nhiệt độ thay đổi; nứt cổ bút</td><td>Bơm đầy mực; kiểm tra gioăng, ren</td></tr>
+          <tr><td>Ngòi xước, vướng giấy</td><td>Hai nửa đầu ngòi lệch nhau</td><td>Chỉnh ngòi (nib tuning), mài nhẹ đầu ngòi</td></tr>
+          <tr><td>Bút cổ không hút mực</td><td>Túi cao su đã mục, gioăng piston khô</td><td>Thay túi mực, thay gioăng, bôi mỡ silicon</td></tr>
+          <tr><td>Ngòi cong, gãy</td><td>Rơi bút, cắm nắp sai</td><td>Nắn lại hoặc thay ngòi</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Phục chế bút cổ</h3>
+      <p>Thường gồm: tháo rời và làm sạch, thay túi cao su (với bút cần gạt, nút bấm), đánh bóng thân, phục hồi chữ khắc, chỉnh và mài ngòi. Nguyên tắc của người phục chế là giữ tối đa bộ phận gốc và chỉ thay khi cần.</p>
+      <h3>Khi nào tự làm, khi nào nhờ thợ?</h3>
+      <ul>
+        <li><b>Tự làm được:</b> rửa bút, thay ống mực, lau ngòi.</li>
+        <li><b>Nên nhờ thợ:</b> chỉnh và mài ngòi, thay túi mực, sửa piston, đánh bóng celluloid và sơn mài, bút có giá trị sưu tầm.</li>
+      </ul>
+      <p class="note">Tại Vietnam Pen Show, góc Pen Clinic là nơi người thợ chỉnh ngòi, sửa và bảo dưỡng bút trực tiếp cho khách.</p>
+    </div>
+    <div class="btns" style="justify-content: flex-start; margin-top: 40px">
+      <a class="btn" href="2026.html">Gặp Pen Clinic tại mùa 2026</a>
+      <a class="btn ghost" href="#top">↑ Mục lục</a>
+    </div>
+  </section>
+
+  <section class="wrap chapter credits" aria-label="Nguồn tham khảo">
+    <p class="eyebrow" style="color: var(--ink)">Nguồn tham khảo</p>
+    <ul>
+      <li><a href="https://fountainpen.it/Cronology" rel="noopener">Fountain pen chronology, fountainpen.it</a></li>
+      <li><a href="https://www.goethe.de/ins/us/en/kul/wir/erb/21451622.html" rel="noopener">Goethe-Institut: The fountain pen</a></li>
+      <li><a href="https://doanhnhan.baophapluat.vn/van-phong-pham-hong-ha-60-nam-thap-sang-mot-thuong-hieu-niem-tin-8780.html" rel="noopener">Báo Pháp Luật: Văn phòng phẩm Hồng Hà 60 năm</a></li>
+      <li><a href="https://www.sggp.org.vn/viet-tay-129796.html" rel="noopener">SGGP: Viết tay</a></li>
+      <li><a href="https://cultpens.com/pages/fountain-pen-filling-systems" rel="noopener">Cult Pens: Fountain pen filling systems</a></li>
+      <li><a href="https://appelboom.com/nib-information/" rel="noopener">Appelboom: Nib information</a></li>
+      <li><a href="https://wikipedia.com/wiki/Fountain_pen_ink" rel="noopener">Wikipedia: Fountain pen ink</a></li>
+      <li><a href="https://fprevolutionusa.com/blogs/news/maki-e-fountain-pens-history" rel="noopener">FP Revolution: History of maki-e in fountain pens</a></li>
+    </ul>
+    <p style="margin-top: 16px">Ảnh minh họa từ <a href="https://www.pexels.com/license/" rel="noopener">Pexels</a> và <a href="https://unsplash.com/license" rel="noopener">Unsplash</a>, dùng theo giấy phép của từng nền tảng.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Vietnam Pen · Kết nối bằng cây bút, lưu giữ bằng nét chữ</span>
+    <nav aria-label="Liên kết cuối trang"><a href="2026.html">Mùa 2026</a><a href="the-gioi-but.html">Thế giới bút</a><a href="https://www.facebook.com/Vietnampenshow1" rel="noopener">Facebook</a><a href="index.html#doi-tac">Liên hệ</a></nav>
+  </div>
+</footer>
+</body>
+</html>
