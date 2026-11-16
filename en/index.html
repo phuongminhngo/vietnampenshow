@@ -706,7 +706,7 @@ button.edition[aria-expanded="true"] .toggle-icon::after { transform: rotate(0de
     });
     track.style.animationDuration = Math.round(items.length * 3.2) + 's';
     row.appendChild(track);
-    row.classList.add('marquee'); if (n++ % 2) row.classList.add('reverse');
+    row.classList.add('marquee'); if (row.closest('.distributors')) row.classList.add('reverse'); // distributor rows run left to right
     var eager = function () { track.querySelectorAll('img').forEach(function (im) { im.loading = 'eager'; }); };
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { eager(); io.disconnect(); } }, { rootMargin: '400px' });
