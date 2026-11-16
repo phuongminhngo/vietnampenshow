@@ -160,15 +160,14 @@ img { max-width: 100%; }
 .brands .brand img { width: 96px; height: 96px; border-radius: 50%; border: 1px solid var(--rule-soft); background: #fff; object-fit: cover; }
 .brands .brand span { font-size: 12px; line-height: 1.35; color: var(--muted); }
 @media (max-width: 520px) { .brands { gap: 22px 12px; } .brands .brand { width: 92px; } .brands .brand img { width: 80px; height: 80px; } }
-/* Logo marquee: the script below turns long .brands rows into a scrolling band; without JS (or with reduced motion) the grid above stays */
+/* Logo marquee: the script below turns long .brands rows into a scrolling, draggable band (no auto-scroll with reduced motion); without JS the grid above stays */
 .brands.marquee { display: block; width: 100%; max-width: none; overflow: hidden; padding-block: 4px;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-.marquee-track { display: flex; width: max-content; animation: brands-scroll 60s linear infinite; }
+.marquee-track { display: flex; width: max-content; will-change: transform; }
 .marquee-track .brand { flex: none; margin-right: 20px; }
-.brands.marquee.reverse .marquee-track { animation-direction: reverse; }
-.brands.marquee:hover .marquee-track, .brands.marquee:focus-within .marquee-track { animation-play-state: paused; }
-@keyframes brands-scroll { to { transform: translateX(-50%); } }
+.brands.marquee { cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.brands.marquee.dragging { cursor: grabbing; }
 /* Distributor groups side by side, one third each (stacked on small screens) */
 .distributors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; margin-top: 36px; }
 .distributors .dist { display: flex; flex-direction: column; align-items: center; min-width: 0; padding-inline: 12px; }
@@ -578,11 +577,11 @@ body { margin: 0; }
 })();
 </script>
 <script>
-// Logo marquee for "Thương hiệu đồng hành": rows wider than the page scroll in a loop
+// Logo marquee for "Thương hiệu đồng hành": rows wider than the page scroll in a loop and can be dragged/swiped
 (function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var rows = document.querySelectorAll('.brands'), n = 0;
-  rows.forEach(function (row) {
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bands = [];
+  document.querySelectorAll('.brands').forEach(function (row) {
     var items = Array.prototype.slice.call(row.children);
     if (items.length < 4) return;
     var w = 0; items.forEach(function (el) { w += el.offsetWidth + 20; });
@@ -594,15 +593,70 @@ body { margin: 0; }
       var im = c.querySelector('img'); if (im) im.alt = '';
       track.appendChild(c);
     });
-    track.style.animationDuration = Math.round(items.length * 3.2) + 's';
-    row.appendChild(track);
-    row.classList.add('marquee'); if (row.closest('.distributors')) row.classList.add('reverse'); // distributor rows run left to right
-    var eager = function () { track.querySelectorAll('img').forEach(function (im) { im.loading = 'eager'; }); };
+    track.querySelectorAll('img').forEach(function (im) { im.draggable = false; });
+    row.appendChild(track); row.classList.add('marquee');
+    var b = { row: row, track: track, x: 0, v: 0, half: 0, hover: false, drag: false, seen: false,
+              dir: row.closest('.distributors') ? 1 : -1, // distributor rows run left to right
+              speed: 0 };
+    function measure() { b.half = track.scrollWidth / 2; b.speed = still ? 0 : b.half / (items.length * 3.2); }
+    measure(); bands.push(b);
+    window.addEventListener('resize', measure);
+    row.addEventListener('mouseenter', function () { b.hover = true; });
+    row.addEventListener('mouseleave', function () { b.hover = false; });
+    var sx = 0, sy = 0, ox = 0, lx = 0, lt = 0, id = null, horiz = null;
+    row.addEventListener('pointerdown', function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      id = e.pointerId; sx = lx = e.clientX; sy = e.clientY; ox = b.x; lt = performance.now(); b.v = 0;
+      horiz = e.pointerType === 'mouse' ? true : null;
+      if (horiz) { b.drag = true; row.setPointerCapture(id); row.classList.add('dragging'); }
+    });
+    row.addEventListener('pointermove', function (e) {
+      if (e.pointerId !== id) return;
+      if (horiz === null) { // touch: decide between page scroll and swipe
+        var dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy);
+        if (dx < 6 && dy < 6) return;
+        horiz = dx > dy;
+        if (!horiz) { id = null; return; }
+        b.drag = true; row.setPointerCapture(id); row.classList.add('dragging');
+      }
+      if (!b.drag) return;
+      var now = performance.now();
+      b.x = ox + (e.clientX - sx);
+      if (now > lt) b.v = (e.clientX - lx) / (now - lt) * 1000;
+      lx = e.clientX; lt = now;
+    });
+    function end(e) {
+      if (e.pointerId !== id) return;
+      id = null; if (!b.drag) return;
+      b.drag = false; row.classList.remove('dragging');
+      if (performance.now() - lt > 80) b.v = 0;
+    }
+    row.addEventListener('pointerup', end); row.addEventListener('pointercancel', end);
+    row.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { e.preventDefault(); b.x -= e.deltaX; }
+    }, { passive: false });
+    var eager = function () { b.seen = true; track.querySelectorAll('img').forEach(function (im) { im.loading = 'eager'; }); };
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { eager(); io.disconnect(); } }, { rootMargin: '400px' });
       io.observe(row);
     } else eager();
   });
+  if (!bands.length) return;
+  var last = performance.now();
+  function tick(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    bands.forEach(function (b) {
+      if (!b.half) return;
+      if (!b.drag) {
+        if (Math.abs(b.v) > 5) { b.x += b.v * dt; b.v *= Math.pow(0.04, dt); } // glide after a flick
+        else { b.v = 0; if (!b.hover && b.seen) b.x += b.dir * b.speed * dt; }
+      }
+      b.x = ((b.x % b.half) - b.half) % b.half; // keep within one copy so the loop is seamless
+      b.track.style.transform = 'translate3d(' + b.x.toFixed(2) + 'px,0,0)';
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
